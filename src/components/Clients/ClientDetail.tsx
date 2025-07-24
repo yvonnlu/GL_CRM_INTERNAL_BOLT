@@ -1009,7 +1009,7 @@ const ClientDetail: React.FC<ClientDetailProps> = ({ clientId, onBack }) => {
           >
             Overview
           </button>
-
+          
           <button
             onClick={() => setActiveTab('questionnaire')}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'questionnaire'
@@ -1018,6 +1018,15 @@ const ClientDetail: React.FC<ClientDetailProps> = ({ clientId, onBack }) => {
               }`}
           >
             Client Questionnaire
+          </button>
+          <button
+            onClick={() => setActiveTab('quotation')}
+            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'quotation'
+              ? 'bg-white text-blue-600 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+              }`}
+          >
+            Quotation
           </button>
           <button
             onClick={() => setActiveTab('projects')}
@@ -1045,15 +1054,6 @@ const ClientDetail: React.FC<ClientDetailProps> = ({ clientId, onBack }) => {
               }`}
           >
             Activities
-          </button>
-          <button
-            onClick={() => setActiveTab('quotation')}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTab === 'quotation'
-              ? 'bg-white text-blue-600 shadow-sm'
-              : 'text-gray-600 hover:text-gray-900'
-              }`}
-          >
-            Quotation
           </button>
         </div>
       </div>

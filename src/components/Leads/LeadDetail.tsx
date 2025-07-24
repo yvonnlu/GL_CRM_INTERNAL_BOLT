@@ -252,11 +252,11 @@ const LeadDetail: React.FC<LeadDetailProps> = ({ leadId, onBack }) => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: User },
+    { id: 'client-questionnaire', label: 'Client Questionnaire', icon: FileText },
     { id: 'quotation', label: 'Quotation', icon: Calculator },
     { id: 'activity', label: 'Activity', icon: Clock },
     { id: 'notes', label: 'Notes', icon: FileText },
     { id: 'proposals', label: 'Proposals', icon: Target },
-    { id: 'client-questionnaire', label: 'Client Questionnaire', icon: FileText },
   ];
 
   const getStatusColor = (status: string) => {

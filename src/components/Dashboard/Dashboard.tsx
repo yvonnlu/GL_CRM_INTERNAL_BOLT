@@ -4,30 +4,17 @@ import {
   Users,
   Target,
   DollarSign,
-  Calendar,
   ArrowUp,
   ArrowDown,
-  MessageSquare,
-  CheckCircle,
-  Clock,
-  AlertTriangle,
   BarChart3,
-  PieChart,
-  Activity,
-  Globe,
-  Mail,
-  Phone,
-  FileText,
-  Star,
-  Zap,
-  Filter,
-  Download,
-  RefreshCw
+  PieChart
 } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
-  const [timeRange, setTimeRange] = useState('30d');
-  const [refreshing, setRefreshing] = useState(false);
+  const [dateRange, setDateRange] = useState({
+    from: '2024-01-01',
+    to: '2024-01-31'
+  });
 
   // Key Performance Indicators
   const kpis = [
@@ -86,57 +73,27 @@ const Dashboard: React.FC = () => {
     { stage: 'Closed Won', count: 8, value: '$160K', color: 'bg-green-500' }
   ];
 
-  // Team Performance
-  const teamPerformance = [
-    { name: 'Sarah Johnson', role: 'Sales Manager', deals: 23, revenue: '$145K', target: 85, avatar: 'SJ' },
-    { name: 'Mike Chen', role: 'Account Executive', deals: 18, revenue: '$120K', target: 92, avatar: 'MC' },
-    { name: 'Emma Rodriguez', role: 'Marketing Lead', deals: 15, revenue: '$98K', target: 78, avatar: 'ER' },
-    { name: 'David Thompson', role: 'Sales Rep', deals: 12, revenue: '$76K', target: 88, avatar: 'DT' }
+  // Team Members
+  const teamMembers = [
+    { name: 'Sarah Johnson', role: 'Sales Manager', active: true, clients: 45, revenue: '$145K' },
+    { name: 'Mike Chen', role: 'Account Executive', active: true, clients: 38, revenue: '$120K' },
+    { name: 'Emma Rodriguez', role: 'Marketing Lead', active: false, clients: 32, revenue: '$98K' },
+    { name: 'David Thompson', role: 'Sales Rep', active: true, clients: 28, revenue: '$76K' }
   ];
 
-  // Recent Activities
-  const recentActivity = [
-    { id: 1, type: 'Deal Closed', client: 'TechCorp Inc.', value: '$45K', time: '2 hours ago', status: 'success' },
-    { id: 2, type: 'New Lead', client: 'Marketing Plus', value: '$12K', time: '4 hours ago', status: 'new' },
-    { id: 3, type: 'Meeting Scheduled', client: 'StartupXYZ', value: '$28K', time: '6 hours ago', status: 'scheduled' },
-    { id: 4, type: 'Proposal Sent', client: 'Enterprise Ltd.', value: '$67K', time: '1 day ago', status: 'sent' },
-    { id: 5, type: 'Follow-up Due', client: 'Local Business', value: '$15K', time: '2 days ago', status: 'warning' }
-  ];
-
-  // Customer Support Metrics
-  const supportMetrics = [
-    { metric: 'Open Tickets', value: 23, change: '-15%', trend: 'down' },
-    { metric: 'Avg Response Time', value: '2.4h', change: '-8%', trend: 'down' },
-    { metric: 'Customer Satisfaction', value: '4.8/5', change: '+3%', trend: 'up' },
-    { metric: 'Resolution Rate', value: '94%', change: '+2%', trend: 'up' }
-  ];
-
-  // Website Analytics
-  const websiteStats = [
-    { metric: 'Visitors', value: '12,847', change: '+18%' },
-    { metric: 'Page Views', value: '45,231', change: '+12%' },
-    { metric: 'Bounce Rate', value: '32%', change: '-5%' },
-    { metric: 'Avg Session', value: '3m 24s', change: '+8%' }
-  ];
-
-  // Upcoming Tasks & Deadlines
-  const upcomingTasks = [
-    { id: 1, task: 'Q1 Performance Review', assignee: 'Sarah J.', due: 'Today 2:00 PM', priority: 'high', type: 'meeting' },
-    { id: 2, task: 'TechCorp Contract Renewal', assignee: 'Mike C.', due: 'Tomorrow', priority: 'high', type: 'deal' },
-    { id: 3, task: 'Marketing Campaign Analysis', assignee: 'Emma R.', due: 'Mar 15', priority: 'medium', type: 'report' },
-    { id: 4, task: 'Team Training Session', assignee: 'David T.', due: 'Mar 18', priority: 'low', type: 'training' }
-  ];
-
-  // Alerts & Notifications
-  // const alerts = [
-  //   { id: 1, type: 'warning', message: '3 deals are at risk of being lost', action: 'Review Pipeline' },
-  //   { id: 2, type: 'info', message: 'Monthly report is ready for review', action: 'View Report' },
-  //   { id: 3, type: 'success', message: 'Target achieved for Q1 revenue', action: 'Celebrate' }
-  // ];
-
-  const handleRefresh = () => {
-    setRefreshing(true);
-    setTimeout(() => setRefreshing(false), 2000);
+  // Conversion Rate Data
+  const conversionData = {
+    totalLeads: 1250,
+    convertedLeads: 310,
+    conversionRate: 24.8,
+    trend: '+2.3%',
+    stages: [
+      { stage: 'Leads', count: 1250, rate: 100 },
+      { stage: 'Qualified', count: 625, rate: 50 },
+      { stage: 'Proposal', count: 375, rate: 30 },
+      { stage: 'Negotiation', count: 250, rate: 20 },
+      { stage: 'Closed Won', count: 310, rate: 24.8 }
+    ]
   };
 
   return (
@@ -144,54 +101,28 @@ const Dashboard: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Executive Dashboard</h2>
+          <h1 className="text-3xl font-bold text-gray-900">Executive Dashboard</h1>
           <p className="text-gray-600">Welcome back! Here's what's happening with your business today.</p>
         </div>
         <div className="flex items-center space-x-3">
-          <select
-            value={timeRange}
-            onChange={(e) => setTimeRange(e.target.value)}
-            className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            <option value="7d">Last 7 days</option>
-            <option value="30d">Last 30 days</option>
-            <option value="90d">Last 90 days</option>
-            <option value="1y">Last year</option>
-          </select>
-          <button
-            onClick={handleRefresh}
-            disabled={refreshing}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center disabled:opacity-50"
-          >
-            <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
-            Refresh
-          </button>
+          <div className="flex items-center space-x-2">
+            <label className="text-sm text-gray-600">From:</label>
+            <input
+              type="date"
+              value={dateRange.from}
+              onChange={(e) => setDateRange({ ...dateRange, from: e.target.value })}
+              className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <label className="text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              value={dateRange.to}
+              onChange={(e) => setDateRange({ ...dateRange, to: e.target.value })}
+              className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
         </div>
       </div>
-
-      {/* Alerts */}
-      {/* {alerts.length > 0 && (
-        <div className="mb-6 space-y-2">
-          {alerts.map((alert) => (
-            <div key={alert.id} className={`p-4 rounded-lg border-l-4 ${alert.type === 'warning' ? 'bg-yellow-50 border-yellow-400' :
-                alert.type === 'info' ? 'bg-blue-50 border-blue-400' :
-                  'bg-green-50 border-green-400'
-              }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  {alert.type === 'warning' && <AlertTriangle className="w-5 h-5 text-yellow-600" />}
-                  {alert.type === 'info' && <Activity className="w-5 h-5 text-blue-600" />}
-                  {alert.type === 'success' && <CheckCircle className="w-5 h-5 text-green-600" />}
-                  <span className="text-sm font-medium text-gray-900">{alert.message}</span>
-                </div>
-                <button className="text-sm text-blue-600 hover:text-blue-800 font-medium">
-                  {alert.action}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      )} */}
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
@@ -225,9 +156,9 @@ const Dashboard: React.FC = () => {
         })}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Sales Pipeline */}
-        <div className="lg:col-span-2 bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold text-gray-900">Sales Pipeline</h3>
             <BarChart3 className="w-5 h-5 text-gray-400" />
@@ -254,144 +185,81 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Team Performance */}
+        {/* Conversion Rate */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Team Performance</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Conversion Rate</h3>
+            <Target className="w-5 h-5 text-gray-400" />
+          </div>
+
+          <div className="text-center mb-6">
+            <div className="text-3xl font-bold text-gray-900">{conversionData.conversionRate}%</div>
+            <div className="text-sm text-gray-600">Overall Conversion Rate</div>
+            <div className="text-sm text-green-600 font-medium">{conversionData.trend} from last period</div>
+          </div>
+
+          <div className="space-y-3">
+            {conversionData.stages.map((stage, index) => (
+              <div key={index} className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm font-medium text-gray-900">{stage.stage}</span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <span className="text-sm text-gray-600">{stage.count}</span>
+                  <span className="text-sm font-semibold text-gray-900">{stage.rate}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Team Members */}
+      <div className="mb-8">
+        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-lg font-semibold text-gray-900">Team Members</h3>
             <Users className="w-5 h-5 text-gray-400" />
           </div>
-          <div className="space-y-4">
-            {teamPerformance.map((member, index) => (
-              <div key={index} className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
-                  {member.avatar}
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">{member.name}</p>
-                  <p className="text-xs text-gray-500">{member.role}</p>
-                  <div className="flex items-center space-x-2 mt-1">
-                    <span className="text-xs text-gray-600">{member.deals} deals</span>
-                    <span className="text-xs font-semibold text-green-600">{member.revenue}</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-1 mt-1">
-                    <div
-                      className="bg-blue-500 h-1 rounded-full"
-                      style={{ width: `${member.target}%` }}
-                    ></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        {/* Recent Activity */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Recent Activity</h3>
-            <Activity className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="space-y-4">
-            {recentActivity.map((activity) => (
-              <div key={activity.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-3 h-3 rounded-full ${activity.status === 'success' ? 'bg-green-500' :
-                      activity.status === 'new' ? 'bg-blue-500' :
-                        activity.status === 'scheduled' ? 'bg-yellow-500' :
-                          activity.status === 'sent' ? 'bg-purple-500' :
-                            'bg-red-500'
-                    }`}></div>
-                  <div>
-                    <p className="font-medium text-gray-900">{activity.type}</p>
-                    <p className="text-sm text-gray-600">{activity.client} • {activity.value}</p>
-                  </div>
-                </div>
-                <span className="text-sm text-gray-500">{activity.time}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Customer Support Metrics */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Customer Support</h3>
-            <MessageSquare className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            {supportMetrics.map((metric, index) => (
-              <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
-                <p className="text-2xl font-bold text-gray-900">{metric.value}</p>
-                <p className="text-sm text-gray-600 mb-1">{metric.metric}</p>
-                <div className={`text-xs flex items-center justify-center ${metric.trend === 'up' ? 'text-green-600' : 'text-red-600'
-                  }`}>
-                  {metric.trend === 'up' ? <ArrowUp className="w-3 h-3 mr-1" /> : <ArrowDown className="w-3 h-3 mr-1" />}
-                  {metric.change}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-        {/* Website Analytics */}
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Website Analytics</h3>
-            <Globe className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="space-y-4">
-            {websiteStats.map((stat, index) => (
-              <div key={index} className="flex items-center justify-between">
-                <span className="text-sm text-gray-600">{stat.metric}</span>
-                <div className="flex items-center space-x-2">
-                  <span className="font-semibold text-gray-900">{stat.value}</span>
-                  <span className="text-xs text-green-600">{stat.change}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Upcoming Tasks */}
-        <div className="lg:col-span-2 bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Upcoming Tasks & Deadlines</h3>
-            <Calendar className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="space-y-4">
-            {upcomingTasks.map((task) => (
-              <div key={task.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-2 h-2 rounded-full ${task.priority === 'high' ? 'bg-red-500' :
-                      task.priority === 'medium' ? 'bg-yellow-500' :
-                        'bg-green-500'
-                    }`}></div>
-                  <div className="flex items-center space-x-2">
-                    {task.type === 'meeting' && <Calendar className="w-4 h-4 text-gray-400" />}
-                    {task.type === 'deal' && <DollarSign className="w-4 h-4 text-gray-400" />}
-                    {task.type === 'report' && <FileText className="w-4 h-4 text-gray-400" />}
-                    {task.type === 'training' && <Users className="w-4 h-4 text-gray-400" />}
-                    <div>
-                      <p className="font-medium text-gray-900">{task.task}</p>
-                      <p className="text-sm text-gray-600">Assigned to {task.assignee}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900">{task.due}</p>
-                  <span className={`text-xs px-2 py-1 rounded-full ${task.priority === 'high' ? 'bg-red-100 text-red-800' :
-                      task.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-green-100 text-green-800'
-                    }`}>
-                    {task.priority}
-                  </span>
-                </div>
-              </div>
-            ))}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Team Member</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Active</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Clients</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Revenue Generated</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {teamMembers.map((member, index) => (
+                  <tr key={index}>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div className="ml-3">
+                          <div className="text-sm font-medium text-gray-900">{member.name}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{member.role}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${member.active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                        }`}>
+                        {member.active ? 'Active' : 'Inactive'}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{member.clients}</td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-green-600">{member.revenue}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -412,19 +280,19 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+        {/* <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Lead Sources</h3>
-            <PieChart className="w-5 h-5 text-gray-400" />
+            <h3 className="text-lg font-semibold text-gray-900">Conversion Rate</h3>
+            <Target className="w-5 h-5 text-gray-400" />
           </div>
-          <div className="h-64 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg flex items-center justify-center">
+          <div className="h-64 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg flex items-center justify-center">
             <div className="text-center">
               <PieChart className="w-12 h-12 text-purple-500 mx-auto mb-2" />
-              <p className="text-gray-600">Lead source distribution</p>
-              <p className="text-sm text-gray-500">Where your leads are coming from</p>
+              <p className="text-gray-600">Conversion rate chart</p>
+              <p className="text-sm text-gray-500">Lead to customer conversion visualization</p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
