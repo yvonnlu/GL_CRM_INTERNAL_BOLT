@@ -67,7 +67,7 @@ const Dashboard: React.FC = () => {
   // Sales Pipeline Overview
   const pipelineStages = [
     { stage: 'Leads', count: 156, value: '$780K', color: 'bg-blue-500' },
-    { stage: 'Qualified', count: 89, value: '$445K', color: 'bg-yellow-500' },
+    { stage: 'New', count: 89, value: '$445K', color: 'bg-yellow-500' },
     { stage: 'Proposal', count: 34, value: '$340K', color: 'bg-orange-500' },
     { stage: 'Negotiation', count: 12, value: '$240K', color: 'bg-purple-500' },
     { stage: 'Closed Won', count: 8, value: '$160K', color: 'bg-green-500' }
