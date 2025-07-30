@@ -37,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, onTabChange }) => {
 
     // { id: 'clickup', label: 'ClickUp Integration', icon: ExternalLink },
     // { id: 'chatwoot', label: 'Chatwoot Center', icon: ChatIcon },
-    { id: 'reports', label: 'Reports', icon: BarChart3 },
+    // { id: 'reports', label: 'Reports', icon: BarChart3 },
     // { id: 'analytics', label: 'Website Analytics', icon: BarChart2 },
     // { id: 'quotations', label: 'Create Quotation', icon: Calculator },
   ];
