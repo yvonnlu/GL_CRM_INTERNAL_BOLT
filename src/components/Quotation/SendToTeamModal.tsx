@@ -45,14 +45,12 @@ Your Company Team`);
         { id: '1', name: 'John Doe', email: 'john@company.com', role: 'Project Manager' },
         { id: '2', name: 'Jane Smith', email: 'jane@company.com', role: 'Sales Director' },
         { id: '3', name: 'Mike Johnson', email: 'mike@company.com', role: 'Technical Lead' },
-        { id: '4', name: 'Sarah Wilson', email: 'sarah@company.com', role: 'Account Manager' }
+        { id: '4', name: 'Sarah Wilson', email: 'sarah@company.com', role: 'Account Manager' },
     ];
 
     const handleTeamMemberToggle = (memberId: string) => {
         setSelectedTeamMembers(prev =>
-            prev.includes(memberId)
-                ? prev.filter(id => id !== memberId)
-                : [...prev, memberId]
+            prev.includes(memberId) ? prev.filter(id => id !== memberId) : [...prev, memberId]
         );
     };
 
@@ -110,17 +108,24 @@ Your Company Team`);
                             </div>
                             <div>
                                 <p className="text-sm text-gray-600">Total Value</p>
-                                <p className="font-medium text-green-600">${quote.total?.toLocaleString() || '0'}</p>
+                                <p className="font-medium text-green-600">
+                                    ${quote.total?.toLocaleString() || '0'}
+                                </p>
                             </div>
                         </div>
                     </div>
 
                     {/* Team Members Selection */}
                     <div>
-                        <h3 className="text-lg font-semibold text-gray-900 mb-4">Select Team Members</h3>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                            Select Team Members
+                        </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                             {teamMembers.map(member => (
-                                <label key={member.id} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <label
+                                    key={member.id}
+                                    className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer"
+                                >
                                     <input
                                         type="checkbox"
                                         checked={selectedTeamMembers.includes(member.id)}
@@ -143,11 +148,13 @@ Your Company Team`);
                         <div className="bg-gray-50 rounded-lg p-4">
                             <div className="flex items-center space-x-3 mb-3">
                                 <User className="w-5 h-5 text-gray-400" />
-                                <span className="text-sm font-medium text-gray-700">Send email as:</span>
+                                <span className="text-sm font-medium text-gray-700">
+                                    Send email as:
+                                </span>
                             </div>
                             <select
                                 value={selectedSender}
-                                onChange={(e) => setSelectedSender(e.target.value)}
+                                onChange={e => setSelectedSender(e.target.value)}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             >
                                 {teamMembers.map(member => (
@@ -160,7 +167,9 @@ Your Company Team`);
                                 <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-lg">
                                     <div className="flex items-center space-x-2">
                                         <Mail className="w-4 h-4 text-blue-600" />
-                                        <span className="text-sm font-medium text-blue-900">Email will be sent from:</span>
+                                        <span className="text-sm font-medium text-blue-900">
+                                            Email will be sent from:
+                                        </span>
                                     </div>
                                     <p className="text-sm text-blue-700 mt-1">
                                         {getSenderInfo()?.name} ({getSenderInfo()?.email})
@@ -178,7 +187,7 @@ Your Company Team`);
                         <input
                             type="text"
                             value={emailSubject}
-                            onChange={(e) => setEmailSubject(e.target.value)}
+                            onChange={e => setEmailSubject(e.target.value)}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
                     </div>
@@ -190,7 +199,7 @@ Your Company Team`);
                         </label>
                         <textarea
                             value={emailMessage}
-                            onChange={(e) => setEmailMessage(e.target.value)}
+                            onChange={e => setEmailMessage(e.target.value)}
                             rows={8}
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         />
@@ -202,10 +211,12 @@ Your Company Team`);
                             <input
                                 type="checkbox"
                                 checked={sendToClient}
-                                onChange={(e) => setSendToClient(e.target.checked)}
+                                onChange={e => setSendToClient(e.target.checked)}
                                 className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                             />
-                            <span className="font-medium text-gray-900">Also send directly to client</span>
+                            <span className="font-medium text-gray-900">
+                                Also send directly to client
+                            </span>
                         </label>
 
                         {sendToClient && (
@@ -214,9 +225,15 @@ Your Company Team`);
                                     <div className="flex items-start space-x-2">
                                         <Mail className="w-5 h-5 text-blue-600 mt-0.5" />
                                         <div>
-                                            <p className="text-sm font-medium text-blue-900">Client Email Details</p>
-                                            <p className="text-sm text-blue-700">To: {quote.lead.email}</p>
-                                            <p className="text-sm text-blue-700">Subject: Quote for {quote.name}</p>
+                                            <p className="text-sm font-medium text-blue-900">
+                                                Client Email Details
+                                            </p>
+                                            <p className="text-sm text-blue-700">
+                                                To: {quote.lead.email}
+                                            </p>
+                                            <p className="text-sm text-blue-700">
+                                                Subject: Quote for {quote.name}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +244,7 @@ Your Company Team`);
                                     </label>
                                     <textarea
                                         value={clientMessage}
-                                        onChange={(e) => setClientMessage(e.target.value)}
+                                        onChange={e => setClientMessage(e.target.value)}
                                         rows={10}
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     />
@@ -242,7 +259,9 @@ Your Company Team`);
                             <FileText className="w-5 h-5 text-yellow-600 mt-0.5" />
                             <div>
                                 <p className="text-sm font-medium text-yellow-900">Attachments</p>
-                                <p className="text-sm text-yellow-700">The following will be attached to the email:</p>
+                                <p className="text-sm text-yellow-700">
+                                    The following will be attached to the email:
+                                </p>
                                 <ul className="text-sm text-yellow-700 mt-1 list-disc list-inside">
                                     <li>Quote PDF ({quote.name})</li>
                                     <li>Company brochure</li>

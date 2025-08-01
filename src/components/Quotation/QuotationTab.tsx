@@ -1,5 +1,19 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, MoreVertical, Eye, Edit3, Copy, Trash2, Calendar, DollarSign, User, Building, Clock } from 'lucide-react';
+import {
+    Plus,
+    Search,
+    Filter,
+    MoreVertical,
+    Eye,
+    Edit3,
+    Copy,
+    Trash2,
+    Calendar,
+    DollarSign,
+    User,
+    Building,
+    Clock,
+} from 'lucide-react';
 import CreateQuotePage from './CreateQuotePage';
 import QuotePDFPreview from './QuotePDFPreview';
 // import CreateQuotePage from './CreateQuotePage';
@@ -60,9 +74,9 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         personas: 3,
                         calendar: '6 months',
                         channels: 'Multi-channel',
-                        competitors: 5
+                        competitors: 5,
                     },
-                    lineTotal: 2000
+                    lineTotal: 2000,
                 },
                 {
                     id: 'seo-monthly',
@@ -79,10 +93,10 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         content: 4,
                         backlinks: 10,
                         reporting: true,
-                        consultation: 2
+                        consultation: 2,
                     },
-                    lineTotal: 10800
-                }
+                    lineTotal: 10800,
+                },
             ],
             subtotal: 15000,
             discount: 10,
@@ -92,7 +106,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
             notes: 'Comprehensive digital marketing solution including website development and content strategy.',
             status: 'sent',
             createdAt: '2024-02-10T10:30:00Z',
-            createdBy: 'John Doe'
+            createdBy: 'John Doe',
         },
         {
             id: '2',
@@ -117,9 +131,9 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         responsive: true,
                         cms: 'WordPress',
                         timeline: '4-6 weeks',
-                        revisions: 3
+                        revisions: 3,
                     },
-                    lineTotal: 2500
+                    lineTotal: 2500,
                 },
                 {
                     id: 'design-ui-website',
@@ -137,10 +151,10 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         prototypes: true,
                         user_testing: false,
                         responsive: true,
-                        style_guide: true
+                        style_guide: true,
                     },
-                    lineTotal: 3000
-                }
+                    lineTotal: 3000,
+                },
             ],
             subtotal: 8000,
             discount: 0,
@@ -150,8 +164,8 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
             notes: 'Modern website redesign with responsive design and CMS integration.',
             status: 'draft',
             createdAt: '2024-02-12T14:15:00Z',
-            createdBy: 'Jane Smith'
-        }
+            createdBy: 'Jane Smith',
+        },
     ]);
 
     const [showCreatePage, setShowCreatePage] = useState(false);
@@ -162,23 +176,35 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'draft': return 'bg-gray-100 text-gray-800';
-            case 'sent': return 'bg-blue-100 text-blue-800';
-            case 'accepted': return 'bg-green-100 text-green-800';
-            case 'rejected': return 'bg-red-100 text-red-800';
-            case 'expired': return 'bg-orange-100 text-orange-800';
-            default: return 'bg-gray-100 text-gray-800';
+            case 'draft':
+                return 'bg-gray-100 text-gray-800';
+            case 'sent':
+                return 'bg-blue-100 text-blue-800';
+            case 'accepted':
+                return 'bg-green-100 text-green-800';
+            case 'rejected':
+                return 'bg-red-100 text-red-800';
+            case 'expired':
+                return 'bg-orange-100 text-orange-800';
+            default:
+                return 'bg-gray-100 text-gray-800';
         }
     };
 
     const getStatusIcon = (status: string) => {
         switch (status) {
-            case 'draft': return '📝';
-            case 'sent': return '📤';
-            case 'accepted': return '✅';
-            case 'rejected': return '❌';
-            case 'expired': return '⏰';
-            default: return '📄';
+            case 'draft':
+                return '📝';
+            case 'sent':
+                return '📤';
+            case 'accepted':
+                return '✅';
+            case 'rejected':
+                return '❌';
+            case 'expired':
+                return '⏰';
+            default:
+                return '📄';
         }
     };
 
@@ -199,7 +225,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
             <CreateQuotePage
                 lead={lead}
                 onBack={() => setShowCreatePage(false)}
-                onSave={(quote) => {
+                onSave={quote => {
                     handleCreateQuote(quote);
                     setShowCreatePage(false);
                 }}
@@ -208,7 +234,8 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
     }
 
     const filteredQuotes = quotes.filter(quote => {
-        const matchesSearch = quote.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        const matchesSearch =
+            quote.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
             quote.company.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesStatus = statusFilter === 'all' || quote.status === statusFilter;
         return matchesSearch && matchesStatus;
@@ -218,7 +245,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
         return new Date(dateString).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'short',
-            day: 'numeric'
+            day: 'numeric',
         });
     };
 
@@ -233,7 +260,9 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900">Quotations</h2>
-                        <p className="text-gray-600 mt-1">Manage quotes for {lead.name} at {lead.company}</p>
+                        <p className="text-gray-600 mt-1">
+                            Manage quotes for {lead.name} at {lead.company}
+                        </p>
                     </div>
                     <button
                         onClick={() => setShowCreatePage(true)}
@@ -255,7 +284,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                                 type="text"
                                 placeholder="Search quotes..."
                                 value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onChange={e => setSearchTerm(e.target.value)}
                                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                         </div>
@@ -264,7 +293,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         <Filter className="w-5 h-5 text-gray-400" />
                         <select
                             value={statusFilter}
-                            onChange={(e) => setStatusFilter(e.target.value)}
+                            onChange={e => setStatusFilter(e.target.value)}
                             className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                         >
                             <option value="all">All Status</option>
@@ -300,21 +329,32 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         </button>
                     </div>
                 ) : (
-                    filteredQuotes.map((quote) => (
-                        <div key={quote.id} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                    filteredQuotes.map(quote => (
+                        <div
+                            key={quote.id}
+                            className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+                        >
                             <div className="flex items-start justify-between">
                                 <div className="flex-1">
                                     <div className="flex items-center space-x-3 mb-3">
-                                        <h3 className="text-lg font-semibold text-gray-900">{quote.name}</h3>
-                                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(quote.status)}`}>
-                                            <span className="mr-1">{getStatusIcon(quote.status)}</span>
-                                            {quote.status.charAt(0).toUpperCase() + quote.status.slice(1)}
-                                        </span>
-                                        {isExpired(quote.validUntil) && quote.status !== 'accepted' && (
-                                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                                ⚠️ Expired
+                                        <h3 className="text-lg font-semibold text-gray-900">
+                                            {quote.name}
+                                        </h3>
+                                        <span
+                                            className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(quote.status)}`}
+                                        >
+                                            <span className="mr-1">
+                                                {getStatusIcon(quote.status)}
                                             </span>
-                                        )}
+                                            {quote.status.charAt(0).toUpperCase() +
+                                                quote.status.slice(1)}
+                                        </span>
+                                        {isExpired(quote.validUntil) &&
+                                            quote.status !== 'accepted' && (
+                                                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                    ⚠️ Expired
+                                                </span>
+                                            )}
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -336,14 +376,18 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                                             <Calendar className="w-4 h-4 text-gray-400" />
                                             <div>
                                                 <p className="text-sm text-gray-600">Valid Until</p>
-                                                <p className="font-medium">{formatDate(quote.validUntil)}</p>
+                                                <p className="font-medium">
+                                                    {formatDate(quote.validUntil)}
+                                                </p>
                                             </div>
                                         </div>
                                         <div className="flex items-center space-x-2">
                                             <Clock className="w-4 h-4 text-gray-400" />
                                             <div>
                                                 <p className="text-sm text-gray-600">Created</p>
-                                                <p className="font-medium">{formatDate(quote.createdAt)}</p>
+                                                <p className="font-medium">
+                                                    {formatDate(quote.createdAt)}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -352,17 +396,26 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                                         <div className="flex items-center space-x-6">
                                             <div>
                                                 <p className="text-sm text-gray-600">Subtotal</p>
-                                                <p className="font-medium">${quote.subtotal.toLocaleString()}</p>
+                                                <p className="font-medium">
+                                                    ${quote.subtotal.toLocaleString()}
+                                                </p>
                                             </div>
                                             {quote.discount > 0 && (
                                                 <div>
-                                                    <p className="text-sm text-gray-600">Discount</p>
-                                                    <p className="font-medium text-green-600">-${quote.discountAmount.toLocaleString()} ({quote.discount}%)</p>
+                                                    <p className="text-sm text-gray-600">
+                                                        Discount
+                                                    </p>
+                                                    <p className="font-medium text-green-600">
+                                                        -${quote.discountAmount.toLocaleString()} (
+                                                        {quote.discount}%)
+                                                    </p>
                                                 </div>
                                             )}
                                             <div>
                                                 <p className="text-sm text-gray-600">Total</p>
-                                                <p className="text-xl font-bold text-gray-900">${quote.total.toLocaleString()}</p>
+                                                <p className="text-xl font-bold text-gray-900">
+                                                    ${quote.total.toLocaleString()}
+                                                </p>
                                             </div>
                                         </div>
                                         <div className="flex items-center space-x-2">
@@ -373,10 +426,16 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                                             >
                                                 <Eye className="w-4 h-4 text-gray-600" />
                                             </button>
-                                            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Edit">
+                                            <button
+                                                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                                title="Edit"
+                                            >
                                                 <Edit3 className="w-4 h-4 text-gray-600" />
                                             </button>
-                                            <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors" title="Duplicate">
+                                            <button
+                                                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                                title="Duplicate"
+                                            >
                                                 <Copy className="w-4 h-4 text-gray-600" />
                                             </button>
                                             <button
@@ -416,7 +475,7 @@ const QuotationTab: React.FC<QuotationTabProps> = ({ lead }) => {
                         discountAmount: selectedQuote.discountAmount,
                         total: selectedQuote.total,
                         validUntil: selectedQuote.validUntil,
-                        notes: selectedQuote.notes
+                        notes: selectedQuote.notes,
                     }}
                     onClose={() => {
                         setShowPDFPreview(false);

@@ -1,7 +1,78 @@
 import React, { useState } from 'react';
-import { Users, Shield, Building, Settings as SettingsIcon, Zap, Bell, TrendingUp, MessageSquare, BarChart3, Server, CreditCard, Download, Plus, Edit, Trash2, Save, Upload, Eye, EyeOff, Copy, Check, X, Search, Filter, Calendar, Clock, Mail, Phone, Globe, Database, Activity, HardDrive, FileText, DollarSign, Percent, Target, Palette, Type, Image, ChevronDown, ChevronRight, AlertTriangle, Info, CheckCircle, RefreshCw, ExternalLink, Key, Webhook, Smartphone, Mic, Send, BookTemplate as Template, PieChart, LineChart, BarChart2, Trash, Archive, Monitor, Cpu, MemoryStick, Wifi, CreditCard as PaymentCard, Receipt, Package, Import, Import as Export, FileUp, FileDown, Shuffle, ChevronUp } from 'lucide-react';
+import {
+    Users,
+    Shield,
+    Building,
+    Settings as SettingsIcon,
+    Zap,
+    Bell,
+    TrendingUp,
+    MessageSquare,
+    BarChart3,
+    Server,
+    CreditCard,
+    Download,
+    Plus,
+    Edit,
+    Trash2,
+    Save,
+    Upload,
+    Eye,
+    EyeOff,
+    Copy,
+    Check,
+    X,
+    Search,
+    Filter,
+    Calendar,
+    Clock,
+    Mail,
+    Phone,
+    Globe,
+    Database,
+    Activity,
+    HardDrive,
+    FileText,
+    DollarSign,
+    Percent,
+    Target,
+    Palette,
+    Type,
+    Image,
+    ChevronDown,
+    ChevronRight,
+    AlertTriangle,
+    Info,
+    CheckCircle,
+    RefreshCw,
+    ExternalLink,
+    Key,
+    Webhook,
+    Smartphone,
+    Mic,
+    Send,
+    BookTemplate as Template,
+    PieChart,
+    LineChart,
+    BarChart2,
+    Trash,
+    Archive,
+    Monitor,
+    Cpu,
+    MemoryStick,
+    Wifi,
+    CreditCard as PaymentCard,
+    Receipt,
+    Package,
+    Import,
+    Import as Export,
+    FileUp,
+    FileDown,
+    Shuffle,
+    ChevronUp,
+} from 'lucide-react';
 
-interface SettingsProps { }
+interface SettingsProps {}
 
 const Settings: React.FC<SettingsProps> = () => {
     const [activeCategory, setActiveCategory] = useState('user-management');
@@ -10,9 +81,33 @@ const Settings: React.FC<SettingsProps> = () => {
 
     // State for various settings
     const [users, setUsers] = useState([
-        { id: 1, name: 'John Doe', email: 'john@company.com', role: 'Admin', status: 'Active', lastLogin: '2024-01-15 10:30', avatar: 'JD' },
-        { id: 2, name: 'Jane Smith', email: 'jane@company.com', role: 'Sales Manager', status: 'Active', lastLogin: '2024-01-15 09:15', avatar: 'JS' },
-        { id: 3, name: 'Mike Johnson', email: 'mike@company.com', role: 'Sales Rep', status: 'Inactive', lastLogin: '2024-01-14 16:45', avatar: 'MJ' }
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'john@company.com',
+            role: 'Admin',
+            status: 'Active',
+            lastLogin: '2024-01-15 10:30',
+            avatar: 'JD',
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            email: 'jane@company.com',
+            role: 'Sales Manager',
+            status: 'Active',
+            lastLogin: '2024-01-15 09:15',
+            avatar: 'JS',
+        },
+        {
+            id: 3,
+            name: 'Mike Johnson',
+            email: 'mike@company.com',
+            role: 'Sales Rep',
+            status: 'Inactive',
+            lastLogin: '2024-01-14 16:45',
+            avatar: 'MJ',
+        },
     ]);
 
     const [inviteForm, setInviteForm] = useState({ email: '', role: 'Sales Rep', message: '' });
@@ -27,7 +122,7 @@ const Settings: React.FC<SettingsProps> = () => {
         phone: '+1 (555) 123-4567',
         address: '123 Business St, City, State 12345',
         website: 'https://abccrm.com',
-        taxId: 'TAX123456789'
+        taxId: 'TAX123456789',
     });
 
     const [businessHours, setBusinessHours] = useState({
@@ -37,7 +132,7 @@ const Settings: React.FC<SettingsProps> = () => {
         thursday: { enabled: true, start: '09:00', end: '17:00' },
         friday: { enabled: true, start: '09:00', end: '17:00' },
         saturday: { enabled: false, start: '09:00', end: '17:00' },
-        sunday: { enabled: false, start: '09:00', end: '17:00' }
+        sunday: { enabled: false, start: '09:00', end: '17:00' },
     });
 
     const [regionalSettings, setRegionalSettings] = useState({
@@ -45,14 +140,20 @@ const Settings: React.FC<SettingsProps> = () => {
         language: 'en',
         timezone: 'America/New_York',
         dateFormat: 'MM/DD/YYYY',
-        timeFormat: '12h'
+        timeFormat: '12h',
     });
 
     // CRM Configuration
     const [customFields, setCustomFields] = useState([
-        { id: 1, name: 'Industry', type: 'select', options: ['Technology', 'Healthcare', 'Finance'], required: true },
+        {
+            id: 1,
+            name: 'Industry',
+            type: 'select',
+            options: ['Technology', 'Healthcare', 'Finance'],
+            required: true,
+        },
         { id: 2, name: 'Company Size', type: 'number', required: false },
-        { id: 3, name: 'Notes', type: 'textarea', required: false }
+        { id: 3, name: 'Notes', type: 'textarea', required: false },
     ]);
 
     const [pipelineStages, setPipelineStages] = useState([
@@ -60,14 +161,14 @@ const Settings: React.FC<SettingsProps> = () => {
         { id: 2, name: 'Qualified', color: '#F59E0B', order: 2 },
         { id: 3, name: 'Proposal', color: '#8B5CF6', order: 3 },
         { id: 4, name: 'Negotiation', color: '#EF4444', order: 4 },
-        { id: 5, name: 'Closed Won', color: '#10B981', order: 5 }
+        { id: 5, name: 'Closed Won', color: '#10B981', order: 5 },
     ]);
 
     const [leadSources, setLeadSources] = useState([
         { id: 1, name: 'Website', active: true, tracking: true },
         { id: 2, name: 'Social Media', active: true, tracking: true },
         { id: 3, name: 'Email Campaign', active: true, tracking: false },
-        { id: 4, name: 'Referral', active: false, tracking: false }
+        { id: 4, name: 'Referral', active: false, tracking: false },
     ]);
 
     // Integrations
@@ -76,7 +177,7 @@ const Settings: React.FC<SettingsProps> = () => {
         workspaceId: '',
         syncTasks: true,
         syncComments: false,
-        autoCreateTasks: true
+        autoCreateTasks: true,
     });
 
     const [chatwootSettings, setChatwootSettings] = useState({
@@ -84,7 +185,7 @@ const Settings: React.FC<SettingsProps> = () => {
         accessToken: '',
         inboxId: '',
         autoAssign: true,
-        syncContacts: true
+        syncContacts: true,
     });
 
     const [emailProvider, setEmailProvider] = useState({
@@ -93,7 +194,7 @@ const Settings: React.FC<SettingsProps> = () => {
         smtpPort: '587',
         username: '',
         password: '',
-        encryption: 'tls'
+        encryption: 'tls',
     });
 
     // Sales & Pipeline Settings
@@ -103,19 +204,40 @@ const Settings: React.FC<SettingsProps> = () => {
         requireApproval: false,
         approvalAmount: 10000,
         followUpReminders: true,
-        reminderInterval: 24
+        reminderInterval: 24,
     });
 
     const [quotationTemplates, setQuotationTemplates] = useState([
         { id: 1, name: 'Standard Quote', isDefault: true, lastModified: '2024-01-15' },
         { id: 2, name: 'Service Quote', isDefault: false, lastModified: '2024-01-10' },
-        { id: 3, name: 'Product Quote', isDefault: false, lastModified: '2024-01-08' }
+        { id: 3, name: 'Product Quote', isDefault: false, lastModified: '2024-01-08' },
     ]);
 
     const [pricingRules, setPricingRules] = useState([
-        { id: 1, name: 'Volume Discount', type: 'percentage', value: 10, condition: 'quantity > 100', active: true },
-        { id: 2, name: 'Early Bird', type: 'fixed', value: 500, condition: 'days_to_close < 7', active: true },
-        { id: 3, name: 'Loyalty Discount', type: 'percentage', value: 5, condition: 'customer_type = returning', active: false }
+        {
+            id: 1,
+            name: 'Volume Discount',
+            type: 'percentage',
+            value: 10,
+            condition: 'quantity > 100',
+            active: true,
+        },
+        {
+            id: 2,
+            name: 'Early Bird',
+            type: 'fixed',
+            value: 500,
+            condition: 'days_to_close < 7',
+            active: true,
+        },
+        {
+            id: 3,
+            name: 'Loyalty Discount',
+            type: 'percentage',
+            value: 5,
+            condition: 'customer_type = returning',
+            active: false,
+        },
     ]);
 
     const [commissionSettings, setCommissionSettings] = useState({
@@ -124,16 +246,28 @@ const Settings: React.FC<SettingsProps> = () => {
         tiers: [
             { min: 0, max: 10000, rate: 3 },
             { min: 10001, max: 50000, rate: 5 },
-            { min: 50001, max: 999999, rate: 7 }
+            { min: 50001, max: 999999, rate: 7 },
         ],
-        paymentSchedule: 'monthly'
+        paymentSchedule: 'monthly',
     });
 
     // Communication Settings
     const [emailTemplates, setEmailTemplates] = useState([
-        { id: 1, name: 'Welcome Email', subject: 'Welcome to our service!', type: 'lead', active: true },
-        { id: 2, name: 'Follow Up', subject: 'Following up on your inquiry', type: 'follow-up', active: true },
-        { id: 3, name: 'Quote Sent', subject: 'Your quote is ready', type: 'quote', active: true }
+        {
+            id: 1,
+            name: 'Welcome Email',
+            subject: 'Welcome to our service!',
+            type: 'lead',
+            active: true,
+        },
+        {
+            id: 2,
+            name: 'Follow Up',
+            subject: 'Following up on your inquiry',
+            type: 'follow-up',
+            active: true,
+        },
+        { id: 3, name: 'Quote Sent', subject: 'Your quote is ready', type: 'quote', active: true },
     ]);
 
     const [smsConfig, setSmsConfig] = useState({
@@ -141,7 +275,7 @@ const Settings: React.FC<SettingsProps> = () => {
         accountSid: '',
         authToken: '',
         fromNumber: '',
-        enabled: false
+        enabled: false,
     });
 
     const [callRecording, setCallRecording] = useState({
@@ -149,14 +283,14 @@ const Settings: React.FC<SettingsProps> = () => {
         autoRecord: true,
         retention: 90,
         transcription: false,
-        storage: 'local'
+        storage: 'local',
     });
 
     const [autoResponder, setAutoResponder] = useState({
         enabled: true,
         businessHoursOnly: true,
         message: 'Thank you for your message. We will get back to you soon.',
-        delay: 5
+        delay: 5,
     });
 
     // Reports & Analytics
@@ -164,13 +298,31 @@ const Settings: React.FC<SettingsProps> = () => {
         { id: 1, name: 'Revenue Chart', enabled: true, position: 1 },
         { id: 2, name: 'Pipeline Overview', enabled: true, position: 2 },
         { id: 3, name: 'Team Performance', enabled: true, position: 3 },
-        { id: 4, name: 'Recent Activity', enabled: false, position: 4 }
+        { id: 4, name: 'Recent Activity', enabled: false, position: 4 },
     ]);
 
     const [reportTemplates, setReportTemplates] = useState([
-        { id: 1, name: 'Monthly Sales Report', type: 'sales', schedule: 'monthly', recipients: ['manager@company.com'] },
-        { id: 2, name: 'Lead Generation Report', type: 'leads', schedule: 'weekly', recipients: ['marketing@company.com'] },
-        { id: 3, name: 'Performance Dashboard', type: 'performance', schedule: 'daily', recipients: ['admin@company.com'] }
+        {
+            id: 1,
+            name: 'Monthly Sales Report',
+            type: 'sales',
+            schedule: 'monthly',
+            recipients: ['manager@company.com'],
+        },
+        {
+            id: 2,
+            name: 'Lead Generation Report',
+            type: 'leads',
+            schedule: 'weekly',
+            recipients: ['marketing@company.com'],
+        },
+        {
+            id: 3,
+            name: 'Performance Dashboard',
+            type: 'performance',
+            schedule: 'daily',
+            recipients: ['admin@company.com'],
+        },
     ]);
 
     const [dataRetention, setDataRetention] = useState({
@@ -178,14 +330,32 @@ const Settings: React.FC<SettingsProps> = () => {
         deals: 2555, // 7 years
         activities: 730, // 2 years
         logs: 90,
-        backups: 30
+        backups: 30,
     });
 
     // System & Performance
     const [systemLogs, setSystemLogs] = useState([
-        { id: 1, timestamp: '2024-01-15 10:30:15', level: 'INFO', message: 'User login successful', user: 'john@company.com' },
-        { id: 2, timestamp: '2024-01-15 10:25:32', level: 'WARNING', message: 'Failed login attempt', user: 'unknown@test.com' },
-        { id: 3, timestamp: '2024-01-15 10:20:45', level: 'ERROR', message: 'Database connection timeout', user: 'system' }
+        {
+            id: 1,
+            timestamp: '2024-01-15 10:30:15',
+            level: 'INFO',
+            message: 'User login successful',
+            user: 'john@company.com',
+        },
+        {
+            id: 2,
+            timestamp: '2024-01-15 10:25:32',
+            level: 'WARNING',
+            message: 'Failed login attempt',
+            user: 'unknown@test.com',
+        },
+        {
+            id: 3,
+            timestamp: '2024-01-15 10:20:45',
+            level: 'ERROR',
+            message: 'Database connection timeout',
+            user: 'system',
+        },
     ]);
 
     const [performanceMetrics, setPerformanceMetrics] = useState({
@@ -193,7 +363,7 @@ const Settings: React.FC<SettingsProps> = () => {
         memoryUsage: 62,
         diskUsage: 78,
         activeUsers: 23,
-        responseTime: 245
+        responseTime: 245,
     });
 
     const [storageUsage, setStorageUsage] = useState({
@@ -203,8 +373,8 @@ const Settings: React.FC<SettingsProps> = () => {
             documents: 234,
             images: 123,
             backups: 89,
-            logs: 10
-        }
+            logs: 10,
+        },
     });
 
     // Billing & Subscription
@@ -214,32 +384,60 @@ const Settings: React.FC<SettingsProps> = () => {
         storage: 500,
         features: ['Advanced Reports', 'API Access', 'Priority Support'],
         nextBilling: '2024-02-15',
-        amount: 299
+        amount: 299,
     });
 
     const [billingHistory, setBillingHistory] = useState([
         { id: 1, date: '2024-01-15', amount: 299, status: 'Paid', invoice: 'INV-2024-001' },
         { id: 2, date: '2023-12-15', amount: 299, status: 'Paid', invoice: 'INV-2023-012' },
-        { id: 3, date: '2023-11-15', amount: 299, status: 'Paid', invoice: 'INV-2023-011' }
+        { id: 3, date: '2023-11-15', amount: 299, status: 'Paid', invoice: 'INV-2023-011' },
     ]);
 
     const [paymentMethods, setPaymentMethods] = useState([
         { id: 1, type: 'card', last4: '4242', brand: 'Visa', isDefault: true, expires: '12/25' },
-        { id: 2, type: 'card', last4: '5555', brand: 'Mastercard', isDefault: false, expires: '08/26' }
+        {
+            id: 2,
+            type: 'card',
+            last4: '5555',
+            brand: 'Mastercard',
+            isDefault: false,
+            expires: '08/26',
+        },
     ]);
 
     // Import/Export
     const [importHistory, setImportHistory] = useState([
-        { id: 1, type: 'Leads', file: 'leads_jan_2024.csv', status: 'Completed', date: '2024-01-15', records: 1250 },
-        { id: 2, type: 'Contacts', file: 'contacts_backup.xlsx', status: 'Failed', date: '2024-01-14', records: 0 },
-        { id: 3, type: 'Deals', file: 'deals_q4_2023.csv', status: 'Completed', date: '2024-01-10', records: 89 }
+        {
+            id: 1,
+            type: 'Leads',
+            file: 'leads_jan_2024.csv',
+            status: 'Completed',
+            date: '2024-01-15',
+            records: 1250,
+        },
+        {
+            id: 2,
+            type: 'Contacts',
+            file: 'contacts_backup.xlsx',
+            status: 'Failed',
+            date: '2024-01-14',
+            records: 0,
+        },
+        {
+            id: 3,
+            type: 'Deals',
+            file: 'deals_q4_2023.csv',
+            status: 'Completed',
+            date: '2024-01-10',
+            records: 89,
+        },
     ]);
 
     const [exportFormats, setExportFormats] = useState({
         csv: true,
         excel: true,
         json: false,
-        xml: false
+        xml: false,
     });
 
     const settingsCategories = [
@@ -251,8 +449,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'user-list', label: 'User List & Profiles' },
                 { id: 'invite-users', label: 'Invite New Users' },
                 { id: 'roles-permissions', label: 'Roles & Permissions' },
-                { id: 'login-activity', label: 'Login Activity & Session Logs' }
-            ]
+                { id: 'login-activity', label: 'Login Activity & Session Logs' },
+            ],
         },
         {
             id: 'security-privacy',
@@ -262,8 +460,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'two-factor', label: 'Two-Factor Authentication' },
                 { id: 'ip-whitelist', label: 'IP Whitelist' },
                 { id: 'data-backup', label: 'Data Export & Backup' },
-                { id: 'password-policies', label: 'Password Policies' }
-            ]
+                { id: 'password-policies', label: 'Password Policies' },
+            ],
         },
         // {
         //     id: 'company-organization',
@@ -284,8 +482,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'custom-fields', label: 'Custom Fields Management' },
                 { id: 'pipeline-stages', label: 'Pipeline Stages Configuration' },
                 { id: 'lead-sources', label: 'Lead Sources Setup' },
-                { id: 'deal-status', label: 'Deal Status Customization' }
-            ]
+                { id: 'deal-status', label: 'Deal Status Customization' },
+            ],
         },
         {
             id: 'integrations-apis',
@@ -296,7 +494,7 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'chatwoot-config', label: 'Chatwoot Configuration' },
                 { id: 'email-provider', label: 'Email Provider Setup' },
                 // { id: 'api-webhooks', label: 'API Keys & Webhooks' }
-            ]
+            ],
         },
         {
             id: 'notifications-alerts',
@@ -306,8 +504,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'email-notifications', label: 'Email Notification Preferences' },
                 { id: 'inapp-notifications', label: 'In-app Notification Settings' },
                 { id: 'alert-rules', label: 'Alert Rules Configuration' },
-                { id: 'reminders', label: 'Reminder Settings' }
-            ]
+                { id: 'reminders', label: 'Reminder Settings' },
+            ],
         },
         {
             id: 'sales-pipeline',
@@ -317,8 +515,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'sales-process', label: 'Sales Process Configuration' },
                 { id: 'quotation-templates', label: 'Quotation Templates' },
                 { id: 'pricing-rules', label: 'Pricing Rules & Discounts' },
-                { id: 'commission-settings', label: 'Commission Settings' }
-            ]
+                { id: 'commission-settings', label: 'Commission Settings' },
+            ],
         },
         {
             id: 'communication-settings',
@@ -328,8 +526,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'email-templates', label: 'Email Templates' },
                 // { id: 'sms-configuration', label: 'SMS Configuration' },
                 // { id: 'call-recording', label: 'Call Recording Settings' },
-                { id: 'auto-responder', label: 'Auto-responder Setup' }
-            ]
+                { id: 'auto-responder', label: 'Auto-responder Setup' },
+            ],
         },
         {
             id: 'reports-analytics',
@@ -339,8 +537,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'dashboard-customization', label: 'Dashboard Customization' },
                 { id: 'report-templates', label: 'Report Templates' },
                 { id: 'data-retention', label: 'Data Retention Policies' },
-                { id: 'custom-metrics', label: 'Custom Metrics Configuration' }
-            ]
+                { id: 'custom-metrics', label: 'Custom Metrics Configuration' },
+            ],
         },
         {
             id: 'system-performance',
@@ -350,8 +548,8 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'database-maintenance', label: 'Database Maintenance' },
                 { id: 'system-logs', label: 'System Logs' },
                 { id: 'performance-monitoring', label: 'Performance Monitoring' },
-                { id: 'storage-usage', label: 'Storage Usage' }
-            ]
+                { id: 'storage-usage', label: 'Storage Usage' },
+            ],
         },
         {
             id: 'billing-subscription',
@@ -360,9 +558,9 @@ const Settings: React.FC<SettingsProps> = () => {
             subsections: [
                 // { id: 'subscription-plans', label: 'Subscription Plans' },
                 { id: 'billing-history', label: 'Billing History' },
-                { id: 'payment-methods', label: 'Payment Methods' }
+                { id: 'payment-methods', label: 'Payment Methods' },
                 // { id: 'usage-statistics', label: 'Usage Statistics' }
-            ]
+            ],
         },
         {
             id: 'import-export',
@@ -372,16 +570,14 @@ const Settings: React.FC<SettingsProps> = () => {
                 { id: 'data-import', label: 'Data Import Tools' },
                 { id: 'export-formats', label: 'Export Formats' },
                 // { id: 'migration-utilities', label: 'Migration Utilities' },
-                { id: 'bulk-operations', label: 'Bulk Operations' }
-            ]
-        }
+                { id: 'bulk-operations', label: 'Bulk Operations' },
+            ],
+        },
     ];
 
     const toggleCategory = (categoryId: string) => {
         setExpandedCategories(prev =>
-            prev.includes(categoryId)
-                ? prev.filter(id => id !== categoryId)
-                : [...prev, categoryId]
+            prev.includes(categoryId) ? prev.filter(id => id !== categoryId) : [...prev, categoryId]
         );
     };
 
@@ -400,7 +596,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">User List & Profiles</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                User List & Profiles
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Add User
@@ -412,15 +610,25 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Login</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                User
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Role
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Last Login
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {users.map((user) => (
+                                        {users.map(user => (
                                             <tr key={user.id}>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <div className="flex items-center">
@@ -428,19 +636,32 @@ const Settings: React.FC<SettingsProps> = () => {
                                                             {user.avatar}
                                                         </div>
                                                         <div className="ml-3">
-                                                            <div className="text-sm font-medium text-gray-900">{user.name}</div>
-                                                            <div className="text-sm text-gray-500">{user.email}</div>
+                                                            <div className="text-sm font-medium text-gray-900">
+                                                                {user.name}
+                                                            </div>
+                                                            <div className="text-sm text-gray-500">
+                                                                {user.email}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.role}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {user.role}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${user.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            user.status === 'Active'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-red-100 text-red-800'
+                                                        }`}
+                                                    >
                                                         {user.status}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.lastLogin}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {user.lastLogin}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     <button className="text-blue-600 hover:text-blue-900 mr-3">
                                                         <Edit className="w-4 h-4" />
@@ -466,21 +687,29 @@ const Settings: React.FC<SettingsProps> = () => {
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <form className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Email Address
+                                    </label>
                                     <input
                                         type="email"
                                         value={inviteForm.email}
-                                        onChange={(e) => setInviteForm({ ...inviteForm, email: e.target.value })}
+                                        onChange={e =>
+                                            setInviteForm({ ...inviteForm, email: e.target.value })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="user@company.com"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Role</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Role
+                                    </label>
                                     <select
                                         value={inviteForm.role}
-                                        onChange={(e) => setInviteForm({ ...inviteForm, role: e.target.value })}
+                                        onChange={e =>
+                                            setInviteForm({ ...inviteForm, role: e.target.value })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     >
                                         <option value="Admin">Admin</option>
@@ -492,10 +721,17 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Personal Message (Optional)</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Personal Message (Optional)
+                                    </label>
                                     <textarea
                                         value={inviteForm.message}
-                                        onChange={(e) => setInviteForm({ ...inviteForm, message: e.target.value })}
+                                        onChange={e =>
+                                            setInviteForm({
+                                                ...inviteForm,
+                                                message: e.target.value,
+                                            })
+                                        }
                                         rows={3}
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="Welcome to our team! We're excited to have you join us."
@@ -524,12 +760,24 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Permission</th>
-                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Admin</th>
-                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Sales Manager</th>
-                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Sales Rep</th>
-                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Marketing</th>
-                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Support</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Permission
+                                            </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Admin
+                                            </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Sales Manager
+                                            </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Sales Rep
+                                            </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Marketing
+                                            </th>
+                                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Support
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
@@ -541,24 +789,63 @@ const Settings: React.FC<SettingsProps> = () => {
                                             'Manage Users',
                                             'System Settings',
                                             'Export Data',
-                                            'API Access'
-                                        ].map((permission) => (
+                                            'API Access',
+                                        ].map(permission => (
                                             <tr key={permission}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{permission}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                    <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {permission}
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                    <input type="checkbox" defaultChecked={permission !== 'Manage Users' && permission !== 'System Settings'} className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked
+                                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                    />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                    <input type="checkbox" defaultChecked={!['Manage Users', 'System Settings', 'Export Data', 'API Access'].includes(permission)} className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={
+                                                            permission !== 'Manage Users' &&
+                                                            permission !== 'System Settings'
+                                                        }
+                                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                    />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                    <input type="checkbox" defaultChecked={['View Dashboard', 'Manage Leads', 'View Reports'].includes(permission)} className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={
+                                                            ![
+                                                                'Manage Users',
+                                                                'System Settings',
+                                                                'Export Data',
+                                                                'API Access',
+                                                            ].includes(permission)
+                                                        }
+                                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                    />
                                                 </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                    <input type="checkbox" defaultChecked={['View Dashboard', 'Manage Clients'].includes(permission)} className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={[
+                                                            'View Dashboard',
+                                                            'Manage Leads',
+                                                            'View Reports',
+                                                        ].includes(permission)}
+                                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                    />
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-center">
+                                                    <input
+                                                        type="checkbox"
+                                                        defaultChecked={[
+                                                            'View Dashboard',
+                                                            'Manage Clients',
+                                                        ].includes(permission)}
+                                                        className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                    />
                                                 </td>
                                             </tr>
                                         ))}
@@ -580,7 +867,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Login Activity & Session Logs</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Login Activity & Session Logs
+                            </h3>
                             <div className="flex items-center space-x-2">
                                 <div className="relative">
                                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -601,27 +890,68 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">IP Address</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Device</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Login Time</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                User
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                IP Address
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Device
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Login Time
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {[
-                                            { user: 'john@company.com', ip: '192.168.1.100', device: 'Chrome on Windows', time: '2024-01-15 10:30', status: 'Success' },
-                                            { user: 'jane@company.com', ip: '192.168.1.101', device: 'Safari on macOS', time: '2024-01-15 09:15', status: 'Success' },
-                                            { user: 'unknown@test.com', ip: '203.0.113.1', device: 'Chrome on Linux', time: '2024-01-15 08:45', status: 'Failed' }
+                                            {
+                                                user: 'john@company.com',
+                                                ip: '192.168.1.100',
+                                                device: 'Chrome on Windows',
+                                                time: '2024-01-15 10:30',
+                                                status: 'Success',
+                                            },
+                                            {
+                                                user: 'jane@company.com',
+                                                ip: '192.168.1.101',
+                                                device: 'Safari on macOS',
+                                                time: '2024-01-15 09:15',
+                                                status: 'Success',
+                                            },
+                                            {
+                                                user: 'unknown@test.com',
+                                                ip: '203.0.113.1',
+                                                device: 'Chrome on Linux',
+                                                time: '2024-01-15 08:45',
+                                                status: 'Failed',
+                                            },
                                         ].map((log, index) => (
                                             <tr key={index}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{log.user}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{log.ip}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{log.device}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{log.time}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {log.user}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {log.ip}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {log.device}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {log.time}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${log.status === 'Success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            log.status === 'Success'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-red-100 text-red-800'
+                                                        }`}
+                                                    >
                                                         {log.status}
                                                     </span>
                                                 </td>
@@ -644,19 +974,25 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'two-factor':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Two-Factor Authentication</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Two-Factor Authentication
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="flex items-center justify-between mb-4">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900">Enable Two-Factor Authentication</h4>
-                                    <p className="text-sm text-gray-500">Add an extra layer of security to your account</p>
+                                    <h4 className="text-sm font-medium text-gray-900">
+                                        Enable Two-Factor Authentication
+                                    </h4>
+                                    <p className="text-sm text-gray-500">
+                                        Add an extra layer of security to your account
+                                    </p>
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
                                         checked={twoFactorEnabled}
-                                        onChange={(e) => setTwoFactorEnabled(e.target.checked)}
+                                        onChange={e => setTwoFactorEnabled(e.target.checked)}
                                         className="sr-only peer"
                                     />
                                     <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -666,15 +1002,21 @@ const Settings: React.FC<SettingsProps> = () => {
                             {twoFactorEnabled && (
                                 <div className="space-y-4 pt-4 border-t border-gray-200">
                                     <div>
-                                        <h5 className="text-sm font-medium text-gray-900 mb-2">Setup Authenticator App</h5>
-                                        <p className="text-sm text-gray-600 mb-4">Scan this QR code with your authenticator app:</p>
+                                        <h5 className="text-sm font-medium text-gray-900 mb-2">
+                                            Setup Authenticator App
+                                        </h5>
+                                        <p className="text-sm text-gray-600 mb-4">
+                                            Scan this QR code with your authenticator app:
+                                        </p>
                                         <div className="w-32 h-32 bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center">
                                             <span className="text-gray-500 text-sm">QR Code</span>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Verification Code</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Verification Code
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter 6-digit code"
@@ -694,14 +1036,16 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'ip-whitelist':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">IP Whitelist Management</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            IP Whitelist Management
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="flex items-center space-x-4 mb-4">
                                 <input
                                     type="text"
                                     value={newIp}
-                                    onChange={(e) => setNewIp(e.target.value)}
+                                    onChange={e => setNewIp(e.target.value)}
                                     placeholder="Enter IP address (e.g., 192.168.1.1)"
                                     className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -721,10 +1065,17 @@ const Settings: React.FC<SettingsProps> = () => {
 
                             <div className="space-y-2">
                                 {ipWhitelist.map((ip, index) => (
-                                    <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                                    <div
+                                        key={index}
+                                        className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                                    >
                                         <span className="text-sm text-gray-900">{ip}</span>
                                         <button
-                                            onClick={() => setIpWhitelist(ipWhitelist.filter((_, i) => i !== index))}
+                                            onClick={() =>
+                                                setIpWhitelist(
+                                                    ipWhitelist.filter((_, i) => i !== index)
+                                                )
+                                            }
                                             className="text-red-600 hover:text-red-800"
                                         >
                                             <Trash2 className="w-4 h-4" />
@@ -739,11 +1090,15 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'data-backup':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Data Export & Backup</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Data Export & Backup
+                        </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Export Data</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Export Data
+                                </h4>
                                 <div className="space-y-3">
                                     <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center justify-center">
                                         <Download className="w-4 h-4 mr-2" />
@@ -761,18 +1116,28 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Automatic Backup</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Automatic Backup
+                                </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Enable Auto Backup</span>
+                                        <span className="text-sm text-gray-700">
+                                            Enable Auto Backup
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Backup Frequency</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Backup Frequency
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="daily">Daily</option>
                                             <option value="weekly">Weekly</option>
@@ -781,7 +1146,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Retention Period</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Retention Period
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="30">30 days</option>
                                             <option value="90">90 days</option>
@@ -1157,7 +1524,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Custom Fields Management</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Custom Fields Management
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Add Field
@@ -1169,21 +1538,40 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Field Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Required</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Options</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Field Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Type
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Required
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Options
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {customFields.map((field) => (
+                                        {customFields.map(field => (
                                             <tr key={field.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{field.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{field.type}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {field.name}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                                    {field.type}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${field.required ? 'bg-red-100 text-red-800' : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            field.required
+                                                                ? 'bg-red-100 text-red-800'
+                                                                : 'bg-gray-100 text-gray-800'
+                                                        }`}
+                                                    >
                                                         {field.required ? 'Required' : 'Optional'}
                                                     </span>
                                                 </td>
@@ -1211,7 +1599,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Pipeline Stages Configuration</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Pipeline Stages Configuration
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Add Stage
@@ -1220,8 +1610,11 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-4">
-                                {pipelineStages.map((stage) => (
-                                    <div key={stage.id} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                                {pipelineStages.map(stage => (
+                                    <div
+                                        key={stage.id}
+                                        className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg"
+                                    >
                                         <div className="flex items-center space-x-3 flex-1">
                                             <div
                                                 className="w-4 h-4 rounded-full"
@@ -1230,17 +1623,29 @@ const Settings: React.FC<SettingsProps> = () => {
                                             <input
                                                 type="text"
                                                 value={stage.name}
-                                                onChange={(e) => setPipelineStages(pipelineStages.map(s =>
-                                                    s.id === stage.id ? { ...s, name: e.target.value } : s
-                                                ))}
+                                                onChange={e =>
+                                                    setPipelineStages(
+                                                        pipelineStages.map(s =>
+                                                            s.id === stage.id
+                                                                ? { ...s, name: e.target.value }
+                                                                : s
+                                                        )
+                                                    )
+                                                }
                                                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             />
                                             <input
                                                 type="color"
                                                 value={stage.color}
-                                                onChange={(e) => setPipelineStages(pipelineStages.map(s =>
-                                                    s.id === stage.id ? { ...s, color: e.target.value } : s
-                                                ))}
+                                                onChange={e =>
+                                                    setPipelineStages(
+                                                        pipelineStages.map(s =>
+                                                            s.id === stage.id
+                                                                ? { ...s, color: e.target.value }
+                                                                : s
+                                                        )
+                                                    )
+                                                }
                                                 className="w-12 h-10 border border-gray-300 rounded-lg cursor-pointer"
                                             />
                                         </div>
@@ -1279,24 +1684,44 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Active</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tracking</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Source Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Active
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Tracking
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {leadSources.map((source) => (
+                                        {leadSources.map(source => (
                                             <tr key={source.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{source.name}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {source.name}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     <label className="relative inline-flex items-center cursor-pointer">
                                                         <input
                                                             type="checkbox"
                                                             checked={source.active}
-                                                            onChange={(e) => setLeadSources(leadSources.map(s =>
-                                                                s.id === source.id ? { ...s, active: e.target.checked } : s
-                                                            ))}
+                                                            onChange={e =>
+                                                                setLeadSources(
+                                                                    leadSources.map(s =>
+                                                                        s.id === source.id
+                                                                            ? {
+                                                                                  ...s,
+                                                                                  active: e.target
+                                                                                      .checked,
+                                                                              }
+                                                                            : s
+                                                                    )
+                                                                )
+                                                            }
                                                             className="sr-only peer"
                                                         />
                                                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1307,9 +1732,20 @@ const Settings: React.FC<SettingsProps> = () => {
                                                         <input
                                                             type="checkbox"
                                                             checked={source.tracking}
-                                                            onChange={(e) => setLeadSources(leadSources.map(s =>
-                                                                s.id === source.id ? { ...s, tracking: e.target.checked } : s
-                                                            ))}
+                                                            onChange={e =>
+                                                                setLeadSources(
+                                                                    leadSources.map(s =>
+                                                                        s.id === source.id
+                                                                            ? {
+                                                                                  ...s,
+                                                                                  tracking:
+                                                                                      e.target
+                                                                                          .checked,
+                                                                              }
+                                                                            : s
+                                                                    )
+                                                                )
+                                                            }
                                                             className="sr-only peer"
                                                         />
                                                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1336,7 +1772,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Deal Status Customization</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Deal Status Customization
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Add Status
@@ -1349,18 +1787,25 @@ const Settings: React.FC<SettingsProps> = () => {
                                 { name: 'In Progress', color: '#F59E0B', count: 23 },
                                 { name: 'Won', color: '#10B981', count: 12 },
                                 { name: 'Lost', color: '#EF4444', count: 8 },
-                                { name: 'On Hold', color: '#8B5CF6', count: 5 }
+                                { name: 'On Hold', color: '#8B5CF6', count: 5 },
                             ].map((status, index) => (
-                                <div key={index} className="bg-white p-4 rounded-lg border border-gray-200">
+                                <div
+                                    key={index}
+                                    className="bg-white p-4 rounded-lg border border-gray-200"
+                                >
                                     <div className="flex items-center justify-between mb-3">
                                         <div className="flex items-center space-x-3">
                                             <div
                                                 className="w-4 h-4 rounded-full"
                                                 style={{ backgroundColor: status.color }}
                                             ></div>
-                                            <span className="font-medium text-gray-900">{status.name}</span>
+                                            <span className="font-medium text-gray-900">
+                                                {status.name}
+                                            </span>
                                         </div>
-                                        <span className="text-sm text-gray-500">{status.count} deals</span>
+                                        <span className="text-sm text-gray-500">
+                                            {status.count} deals
+                                        </span>
                                     </div>
 
                                     <div className="space-y-2">
@@ -1397,17 +1842,26 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'clickup-integration':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">ClickUp Integration Settings</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            ClickUp Integration Settings
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <form className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">API Key</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        API Key
+                                    </label>
                                     <div className="relative">
                                         <input
                                             type="password"
                                             value={clickupSettings.apiKey}
-                                            onChange={(e) => setClickupSettings({ ...clickupSettings, apiKey: e.target.value })}
+                                            onChange={e =>
+                                                setClickupSettings({
+                                                    ...clickupSettings,
+                                                    apiKey: e.target.value,
+                                                })
+                                            }
                                             className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             placeholder="Enter your ClickUp API key"
                                         />
@@ -1421,18 +1875,27 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Workspace ID</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Workspace ID
+                                    </label>
                                     <input
                                         type="text"
                                         value={clickupSettings.workspaceId}
-                                        onChange={(e) => setClickupSettings({ ...clickupSettings, workspaceId: e.target.value })}
+                                        onChange={e =>
+                                            setClickupSettings({
+                                                ...clickupSettings,
+                                                workspaceId: e.target.value,
+                                            })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="Enter workspace ID"
                                     />
                                 </div>
 
                                 <div className="space-y-3">
-                                    <h4 className="text-sm font-medium text-gray-900">Sync Options</h4>
+                                    <h4 className="text-sm font-medium text-gray-900">
+                                        Sync Options
+                                    </h4>
 
                                     <div className="flex items-center justify-between">
                                         <span className="text-sm text-gray-700">Sync Tasks</span>
@@ -1440,7 +1903,12 @@ const Settings: React.FC<SettingsProps> = () => {
                                             <input
                                                 type="checkbox"
                                                 checked={clickupSettings.syncTasks}
-                                                onChange={(e) => setClickupSettings({ ...clickupSettings, syncTasks: e.target.checked })}
+                                                onChange={e =>
+                                                    setClickupSettings({
+                                                        ...clickupSettings,
+                                                        syncTasks: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1453,7 +1921,12 @@ const Settings: React.FC<SettingsProps> = () => {
                                             <input
                                                 type="checkbox"
                                                 checked={clickupSettings.syncComments}
-                                                onChange={(e) => setClickupSettings({ ...clickupSettings, syncComments: e.target.checked })}
+                                                onChange={e =>
+                                                    setClickupSettings({
+                                                        ...clickupSettings,
+                                                        syncComments: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1461,12 +1934,19 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Auto Create Tasks</span>
+                                        <span className="text-sm text-gray-700">
+                                            Auto Create Tasks
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
                                                 checked={clickupSettings.autoCreateTasks}
-                                                onChange={(e) => setClickupSettings({ ...clickupSettings, autoCreateTasks: e.target.checked })}
+                                                onChange={e =>
+                                                    setClickupSettings({
+                                                        ...clickupSettings,
+                                                        autoCreateTasks: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1497,28 +1977,44 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'chatwoot-config':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Chatwoot Configuration</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Chatwoot Configuration
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <form className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Chatwoot URL</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Chatwoot URL
+                                    </label>
                                     <input
                                         type="url"
                                         value={chatwootSettings.url}
-                                        onChange={(e) => setChatwootSettings({ ...chatwootSettings, url: e.target.value })}
+                                        onChange={e =>
+                                            setChatwootSettings({
+                                                ...chatwootSettings,
+                                                url: e.target.value,
+                                            })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="https://your-chatwoot-instance.com"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Access Token</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Access Token
+                                    </label>
                                     <div className="relative">
                                         <input
                                             type="password"
                                             value={chatwootSettings.accessToken}
-                                            onChange={(e) => setChatwootSettings({ ...chatwootSettings, accessToken: e.target.value })}
+                                            onChange={e =>
+                                                setChatwootSettings({
+                                                    ...chatwootSettings,
+                                                    accessToken: e.target.value,
+                                                })
+                                            }
                                             className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             placeholder="Enter access token"
                                         />
@@ -1532,26 +2028,42 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Inbox ID</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Inbox ID
+                                    </label>
                                     <input
                                         type="text"
                                         value={chatwootSettings.inboxId}
-                                        onChange={(e) => setChatwootSettings({ ...chatwootSettings, inboxId: e.target.value })}
+                                        onChange={e =>
+                                            setChatwootSettings({
+                                                ...chatwootSettings,
+                                                inboxId: e.target.value,
+                                            })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         placeholder="Enter inbox ID"
                                     />
                                 </div>
 
                                 <div className="space-y-3">
-                                    <h4 className="text-sm font-medium text-gray-900">Configuration Options</h4>
+                                    <h4 className="text-sm font-medium text-gray-900">
+                                        Configuration Options
+                                    </h4>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Auto Assign Conversations</span>
+                                        <span className="text-sm text-gray-700">
+                                            Auto Assign Conversations
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
                                                 checked={chatwootSettings.autoAssign}
-                                                onChange={(e) => setChatwootSettings({ ...chatwootSettings, autoAssign: e.target.checked })}
+                                                onChange={e =>
+                                                    setChatwootSettings({
+                                                        ...chatwootSettings,
+                                                        autoAssign: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1564,7 +2076,12 @@ const Settings: React.FC<SettingsProps> = () => {
                                             <input
                                                 type="checkbox"
                                                 checked={chatwootSettings.syncContacts}
-                                                onChange={(e) => setChatwootSettings({ ...chatwootSettings, syncContacts: e.target.checked })}
+                                                onChange={e =>
+                                                    setChatwootSettings({
+                                                        ...chatwootSettings,
+                                                        syncContacts: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1595,15 +2112,24 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'email-provider':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Email Provider Setup</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Email Provider Setup
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <form className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Provider</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Email Provider
+                                    </label>
                                     <select
                                         value={emailProvider.provider}
-                                        onChange={(e) => setEmailProvider({ ...emailProvider, provider: e.target.value })}
+                                        onChange={e =>
+                                            setEmailProvider({
+                                                ...emailProvider,
+                                                provider: e.target.value,
+                                            })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     >
                                         <option value="gmail">Gmail</option>
@@ -1616,22 +2142,36 @@ const Settings: React.FC<SettingsProps> = () => {
                                     <>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">SMTP Host</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    SMTP Host
+                                                </label>
                                                 <input
                                                     type="text"
                                                     value={emailProvider.smtpHost}
-                                                    onChange={(e) => setEmailProvider({ ...emailProvider, smtpHost: e.target.value })}
+                                                    onChange={e =>
+                                                        setEmailProvider({
+                                                            ...emailProvider,
+                                                            smtpHost: e.target.value,
+                                                        })
+                                                    }
                                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                     placeholder="smtp.example.com"
                                                 />
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">SMTP Port</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    SMTP Port
+                                                </label>
                                                 <input
                                                     type="text"
                                                     value={emailProvider.smtpPort}
-                                                    onChange={(e) => setEmailProvider({ ...emailProvider, smtpPort: e.target.value })}
+                                                    onChange={e =>
+                                                        setEmailProvider({
+                                                            ...emailProvider,
+                                                            smtpPort: e.target.value,
+                                                        })
+                                                    }
                                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                     placeholder="587"
                                                 />
@@ -1639,32 +2179,53 @@ const Settings: React.FC<SettingsProps> = () => {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Username
+                                            </label>
                                             <input
                                                 type="text"
                                                 value={emailProvider.username}
-                                                onChange={(e) => setEmailProvider({ ...emailProvider, username: e.target.value })}
+                                                onChange={e =>
+                                                    setEmailProvider({
+                                                        ...emailProvider,
+                                                        username: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 placeholder="your-email@example.com"
                                             />
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Password
+                                            </label>
                                             <input
                                                 type="password"
                                                 value={emailProvider.password}
-                                                onChange={(e) => setEmailProvider({ ...emailProvider, password: e.target.value })}
+                                                onChange={e =>
+                                                    setEmailProvider({
+                                                        ...emailProvider,
+                                                        password: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 placeholder="Enter password"
                                             />
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Encryption</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Encryption
+                                            </label>
                                             <select
                                                 value={emailProvider.encryption}
-                                                onChange={(e) => setEmailProvider({ ...emailProvider, encryption: e.target.value })}
+                                                onChange={e =>
+                                                    setEmailProvider({
+                                                        ...emailProvider,
+                                                        encryption: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             >
                                                 <option value="tls">TLS</option>
@@ -1787,27 +2348,64 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'email-notifications':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Email Notification Preferences</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Email Notification Preferences
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-4">
                                 {[
-                                    { id: 'new-lead', label: 'New Lead Created', description: 'Get notified when a new lead is added to the system' },
-                                    { id: 'deal-updated', label: 'Deal Status Updated', description: 'Receive updates when deal status changes' },
-                                    { id: 'task-assigned', label: 'Task Assigned', description: 'Get notified when a task is assigned to you' },
-                                    { id: 'meeting-reminder', label: 'Meeting Reminders', description: 'Receive reminders before scheduled meetings' },
-                                    { id: 'quota-achieved', label: 'Quota Achieved', description: 'Get notified when sales quotas are met' },
-                                    { id: 'system-updates', label: 'System Updates', description: 'Receive notifications about system maintenance and updates' }
-                                ].map((notification) => (
-                                    <div key={notification.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    {
+                                        id: 'new-lead',
+                                        label: 'New Lead Created',
+                                        description:
+                                            'Get notified when a new lead is added to the system',
+                                    },
+                                    {
+                                        id: 'deal-updated',
+                                        label: 'Deal Status Updated',
+                                        description: 'Receive updates when deal status changes',
+                                    },
+                                    {
+                                        id: 'task-assigned',
+                                        label: 'Task Assigned',
+                                        description: 'Get notified when a task is assigned to you',
+                                    },
+                                    {
+                                        id: 'meeting-reminder',
+                                        label: 'Meeting Reminders',
+                                        description: 'Receive reminders before scheduled meetings',
+                                    },
+                                    {
+                                        id: 'quota-achieved',
+                                        label: 'Quota Achieved',
+                                        description: 'Get notified when sales quotas are met',
+                                    },
+                                    {
+                                        id: 'system-updates',
+                                        label: 'System Updates',
+                                        description:
+                                            'Receive notifications about system maintenance and updates',
+                                    },
+                                ].map(notification => (
+                                    <div
+                                        key={notification.id}
+                                        className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                                    >
                                         <div>
-                                            <h4 className="text-sm font-medium text-gray-900">{notification.label}</h4>
-                                            <p className="text-sm text-gray-500">{notification.description}</p>
+                                            <h4 className="text-sm font-medium text-gray-900">
+                                                {notification.label}
+                                            </h4>
+                                            <p className="text-sm text-gray-500">
+                                                {notification.description}
+                                            </p>
                                         </div>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
-                                                defaultChecked={!['system-updates'].includes(notification.id)}
+                                                defaultChecked={
+                                                    !['system-updates'].includes(notification.id)
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1829,15 +2427,27 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'inapp-notifications':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">In-app Notification Settings</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            In-app Notification Settings
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Notification Position</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Notification Position
+                                    </h4>
                                     <div className="grid grid-cols-2 gap-3">
-                                        {['top-right', 'top-left', 'bottom-right', 'bottom-left'].map((position) => (
-                                            <label key={position} className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                        {[
+                                            'top-right',
+                                            'top-left',
+                                            'bottom-right',
+                                            'bottom-left',
+                                        ].map(position => (
+                                            <label
+                                                key={position}
+                                                className="flex items-center space-x-3 p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50"
+                                            >
                                                 <input
                                                     type="radio"
                                                     name="position"
@@ -1845,33 +2455,51 @@ const Settings: React.FC<SettingsProps> = () => {
                                                     defaultChecked={position === 'top-right'}
                                                     className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                                                 />
-                                                <span className="text-sm text-gray-700 capitalize">{position.replace('-', ' ')}</span>
+                                                <span className="text-sm text-gray-700 capitalize">
+                                                    {position.replace('-', ' ')}
+                                                </span>
                                             </label>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Notification Behavior</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Notification Behavior
+                                    </h4>
                                     <div className="space-y-3">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Auto-dismiss notifications</span>
+                                            <span className="text-sm text-gray-700">
+                                                Auto-dismiss notifications
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Play notification sounds</span>
+                                            <span className="text-sm text-gray-700">
+                                                Play notification sounds
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Show desktop notifications</span>
+                                            <span className="text-sm text-gray-700">
+                                                Show desktop notifications
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
                                                 <input type="checkbox" className="sr-only peer" />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -1881,7 +2509,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Auto-dismiss after (seconds)</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Auto-dismiss after (seconds)
+                                    </label>
                                     <input
                                         type="number"
                                         defaultValue="5"
@@ -1906,7 +2536,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Alert Rules Configuration</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Alert Rules Configuration
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Create Rule
@@ -1918,26 +2550,62 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rule Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Condition</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Rule Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Condition
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Action
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {[
-                                            { name: 'High Value Deal', condition: 'Deal value > $50,000', action: 'Email to Manager', status: 'Active' },
-                                            { name: 'Stale Lead Alert', condition: 'Lead not contacted for 7 days', action: 'Slack notification', status: 'Active' },
-                                            { name: 'Quota Achievement', condition: 'Monthly quota reached', action: 'Team notification', status: 'Inactive' }
+                                            {
+                                                name: 'High Value Deal',
+                                                condition: 'Deal value > $50,000',
+                                                action: 'Email to Manager',
+                                                status: 'Active',
+                                            },
+                                            {
+                                                name: 'Stale Lead Alert',
+                                                condition: 'Lead not contacted for 7 days',
+                                                action: 'Slack notification',
+                                                status: 'Active',
+                                            },
+                                            {
+                                                name: 'Quota Achievement',
+                                                condition: 'Monthly quota reached',
+                                                action: 'Team notification',
+                                                status: 'Inactive',
+                                            },
                                         ].map((rule, index) => (
                                             <tr key={index}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{rule.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{rule.condition}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{rule.action}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {rule.name}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {rule.condition}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {rule.action}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${rule.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            rule.status === 'Active'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-gray-100 text-gray-800'
+                                                        }`}
+                                                    >
                                                         {rule.status}
                                                     </span>
                                                 </td>
@@ -1966,19 +2634,29 @@ const Settings: React.FC<SettingsProps> = () => {
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Follow-up Reminders</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Follow-up Reminders
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Enable automatic follow-up reminders</span>
+                                            <span className="text-sm text-gray-700">
+                                                Enable automatic follow-up reminders
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">First reminder after</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    First reminder after
+                                                </label>
                                                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                                     <option value="1">1 day</option>
                                                     <option value="3">3 days</option>
@@ -1987,7 +2665,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Second reminder after</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Second reminder after
+                                                </label>
                                                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                                     <option value="7">1 week</option>
                                                     <option value="14">2 weeks</option>
@@ -1999,27 +2679,50 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Meeting Reminders</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Meeting Reminders
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Send meeting reminders</span>
+                                            <span className="text-sm text-gray-700">
+                                                Send meeting reminders
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Remind me before</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Remind me before
+                                            </label>
                                             <div className="space-y-2">
-                                                {['15 minutes', '30 minutes', '1 hour', '1 day'].map((time) => (
-                                                    <label key={time} className="flex items-center space-x-3">
+                                                {[
+                                                    '15 minutes',
+                                                    '30 minutes',
+                                                    '1 hour',
+                                                    '1 day',
+                                                ].map(time => (
+                                                    <label
+                                                        key={time}
+                                                        className="flex items-center space-x-3"
+                                                    >
                                                         <input
                                                             type="checkbox"
-                                                            defaultChecked={['15 minutes', '1 day'].includes(time)}
+                                                            defaultChecked={[
+                                                                '15 minutes',
+                                                                '1 day',
+                                                            ].includes(time)}
                                                             className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                                                         />
-                                                        <span className="text-sm text-gray-700">{time}</span>
+                                                        <span className="text-sm text-gray-700">
+                                                            {time}
+                                                        </span>
                                                     </label>
                                                 ))}
                                             </div>
@@ -2028,19 +2731,29 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Escalation Rules</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Escalation Rules
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Enable escalation for overdue tasks</span>
+                                            <span className="text-sm text-gray-700">
+                                                Enable escalation for overdue tasks
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Level 1 (Manager)</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Level 1 (Manager)
+                                                </label>
                                                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                                     <option value="1">1 day overdue</option>
                                                     <option value="2">2 days overdue</option>
@@ -2049,7 +2762,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Level 2 (Director)</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Level 2 (Director)
+                                                </label>
                                                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                                     <option value="3">3 days overdue</option>
                                                     <option value="5">5 days overdue</option>
@@ -2058,7 +2773,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                             </div>
 
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Level 3 (Executive)</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Level 3 (Executive)
+                                                </label>
                                                 <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                                     <option value="7">1 week overdue</option>
                                                     <option value="14">2 weeks overdue</option>
@@ -2090,20 +2807,31 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'sales-process':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Sales Process Configuration</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Sales Process Configuration
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Lead Assignment</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Lead Assignment
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Auto-assign new leads</span>
+                                            <span className="text-sm text-gray-700">
+                                                Auto-assign new leads
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
                                                 <input
                                                     type="checkbox"
                                                     checked={salesProcess.autoAssignLeads}
-                                                    onChange={(e) => setSalesProcess({ ...salesProcess, autoAssignLeads: e.target.checked })}
+                                                    onChange={e =>
+                                                        setSalesProcess({
+                                                            ...salesProcess,
+                                                            autoAssignLeads: e.target.checked,
+                                                        })
+                                                    }
                                                     className="sr-only peer"
                                                 />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2111,15 +2839,24 @@ const Settings: React.FC<SettingsProps> = () => {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Lead rotation method</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Lead rotation method
+                                            </label>
                                             <select
                                                 value={salesProcess.leadRotation}
-                                                onChange={(e) => setSalesProcess({ ...salesProcess, leadRotation: e.target.value })}
+                                                onChange={e =>
+                                                    setSalesProcess({
+                                                        ...salesProcess,
+                                                        leadRotation: e.target.value,
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             >
                                                 <option value="round-robin">Round Robin</option>
                                                 <option value="load-balanced">Load Balanced</option>
-                                                <option value="territory-based">Territory Based</option>
+                                                <option value="territory-based">
+                                                    Territory Based
+                                                </option>
                                                 <option value="skill-based">Skill Based</option>
                                             </select>
                                         </div>
@@ -2127,15 +2864,24 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Deal Approval</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Deal Approval
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Require approval for large deals</span>
+                                            <span className="text-sm text-gray-700">
+                                                Require approval for large deals
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
                                                 <input
                                                     type="checkbox"
                                                     checked={salesProcess.requireApproval}
-                                                    onChange={(e) => setSalesProcess({ ...salesProcess, requireApproval: e.target.checked })}
+                                                    onChange={e =>
+                                                        setSalesProcess({
+                                                            ...salesProcess,
+                                                            requireApproval: e.target.checked,
+                                                        })
+                                                    }
                                                     className="sr-only peer"
                                                 />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2144,11 +2890,20 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                         {salesProcess.requireApproval && (
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Approval threshold ($)</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Approval threshold ($)
+                                                </label>
                                                 <input
                                                     type="number"
                                                     value={salesProcess.approvalAmount}
-                                                    onChange={(e) => setSalesProcess({ ...salesProcess, approvalAmount: parseInt(e.target.value) })}
+                                                    onChange={e =>
+                                                        setSalesProcess({
+                                                            ...salesProcess,
+                                                            approvalAmount: parseInt(
+                                                                e.target.value
+                                                            ),
+                                                        })
+                                                    }
                                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 />
                                             </div>
@@ -2157,15 +2912,24 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Follow-up Settings</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Follow-up Settings
+                                    </h4>
                                     <div className="space-y-4">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Enable follow-up reminders</span>
+                                            <span className="text-sm text-gray-700">
+                                                Enable follow-up reminders
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
                                                 <input
                                                     type="checkbox"
                                                     checked={salesProcess.followUpReminders}
-                                                    onChange={(e) => setSalesProcess({ ...salesProcess, followUpReminders: e.target.checked })}
+                                                    onChange={e =>
+                                                        setSalesProcess({
+                                                            ...salesProcess,
+                                                            followUpReminders: e.target.checked,
+                                                        })
+                                                    }
                                                     className="sr-only peer"
                                                 />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2174,11 +2938,20 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                         {salesProcess.followUpReminders && (
                                             <div>
-                                                <label className="block text-sm font-medium text-gray-700 mb-2">Reminder interval (hours)</label>
+                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                    Reminder interval (hours)
+                                                </label>
                                                 <input
                                                     type="number"
                                                     value={salesProcess.reminderInterval}
-                                                    onChange={(e) => setSalesProcess({ ...salesProcess, reminderInterval: parseInt(e.target.value) })}
+                                                    onChange={e =>
+                                                        setSalesProcess({
+                                                            ...salesProcess,
+                                                            reminderInterval: parseInt(
+                                                                e.target.value
+                                                            ),
+                                                        })
+                                                    }
                                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 />
                                             </div>
@@ -2201,7 +2974,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Quotation Templates</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Quotation Templates
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Create Template
@@ -2213,16 +2988,26 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Template Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Default</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Modified</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Template Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Default
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Last Modified
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {quotationTemplates.map((template) => (
+                                        {quotationTemplates.map(template => (
                                             <tr key={template.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{template.name}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {template.name}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
                                                     {template.isDefault ? (
                                                         <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
@@ -2234,7 +3019,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                                         </button>
                                                     )}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{template.lastModified}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {template.lastModified}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     <button className="text-blue-600 hover:text-blue-900 mr-3">
                                                         <Eye className="w-4 h-4" />
@@ -2254,10 +3041,14 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Template Editor</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Template Editor
+                            </h4>
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Template Name</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Template Name
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="Enter template name"
@@ -2266,7 +3057,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Template Content</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Template Content
+                                    </label>
                                     <textarea
                                         rows={10}
                                         placeholder="Enter your quotation template content here..."
@@ -2292,7 +3085,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Pricing Rules & Discounts</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Pricing Rules & Discounts
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Add Rule
@@ -2304,26 +3099,51 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rule Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Value</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Condition</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Rule Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Type
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Value
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Condition
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {pricingRules.map((rule) => (
+                                        {pricingRules.map(rule => (
                                             <tr key={rule.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{rule.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{rule.type}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                    {rule.type === 'percentage' ? `${rule.value}%` : `$${rule.value}`}
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {rule.name}
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{rule.condition}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                                    {rule.type}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {rule.type === 'percentage'
+                                                        ? `${rule.value}%`
+                                                        : `$${rule.value}`}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {rule.condition}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${rule.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            rule.active
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-gray-100 text-gray-800'
+                                                        }`}
+                                                    >
                                                         {rule.active ? 'Active' : 'Inactive'}
                                                     </span>
                                                 </td>
@@ -2343,11 +3163,15 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Create New Pricing Rule</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Create New Pricing Rule
+                            </h4>
                             <form className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Rule Name</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Rule Name
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter rule name"
@@ -2356,7 +3180,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Discount Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Discount Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="percentage">Percentage</option>
                                             <option value="fixed">Fixed Amount</option>
@@ -2364,7 +3190,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Discount Value</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Discount Value
+                                        </label>
                                         <input
                                             type="number"
                                             placeholder="Enter value"
@@ -2373,7 +3201,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Status
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="active">Active</option>
                                             <option value="inactive">Inactive</option>
@@ -2382,7 +3212,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Condition</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Condition
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="e.g., quantity > 100 OR deal_value > 10000"
@@ -2412,12 +3244,19 @@ const Settings: React.FC<SettingsProps> = () => {
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Default Commission Rate</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Default Commission Rate
+                                    </h4>
                                     <div className="flex items-center space-x-4">
                                         <input
                                             type="number"
                                             value={commissionSettings.defaultRate}
-                                            onChange={(e) => setCommissionSettings({ ...commissionSettings, defaultRate: parseFloat(e.target.value) })}
+                                            onChange={e =>
+                                                setCommissionSettings({
+                                                    ...commissionSettings,
+                                                    defaultRate: parseFloat(e.target.value),
+                                                })
+                                            }
                                             className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             step="0.1"
                                             min="0"
@@ -2429,12 +3268,19 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                 <div>
                                     <div className="flex items-center justify-between mb-4">
-                                        <h4 className="text-sm font-medium text-gray-900">Tiered Commission Structure</h4>
+                                        <h4 className="text-sm font-medium text-gray-900">
+                                            Tiered Commission Structure
+                                        </h4>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
                                                 checked={commissionSettings.tieredCommission}
-                                                onChange={(e) => setCommissionSettings({ ...commissionSettings, tieredCommission: e.target.checked })}
+                                                onChange={e =>
+                                                    setCommissionSettings({
+                                                        ...commissionSettings,
+                                                        tieredCommission: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2444,42 +3290,72 @@ const Settings: React.FC<SettingsProps> = () => {
                                     {commissionSettings.tieredCommission && (
                                         <div className="space-y-3">
                                             {commissionSettings.tiers.map((tier, index) => (
-                                                <div key={index} className="grid grid-cols-4 gap-4 items-center p-3 bg-gray-50 rounded-lg">
+                                                <div
+                                                    key={index}
+                                                    className="grid grid-cols-4 gap-4 items-center p-3 bg-gray-50 rounded-lg"
+                                                >
                                                     <div>
-                                                        <label className="block text-xs font-medium text-gray-700 mb-1">Min ($)</label>
+                                                        <label className="block text-xs font-medium text-gray-700 mb-1">
+                                                            Min ($)
+                                                        </label>
                                                         <input
                                                             type="number"
                                                             value={tier.min}
-                                                            onChange={(e) => {
-                                                                const newTiers = [...commissionSettings.tiers];
-                                                                newTiers[index].min = parseInt(e.target.value);
-                                                                setCommissionSettings({ ...commissionSettings, tiers: newTiers });
+                                                            onChange={e => {
+                                                                const newTiers = [
+                                                                    ...commissionSettings.tiers,
+                                                                ];
+                                                                newTiers[index].min = parseInt(
+                                                                    e.target.value
+                                                                );
+                                                                setCommissionSettings({
+                                                                    ...commissionSettings,
+                                                                    tiers: newTiers,
+                                                                });
                                                             }}
                                                             className="w-full px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                                                         />
                                                     </div>
                                                     <div>
-                                                        <label className="block text-xs font-medium text-gray-700 mb-1">Max ($)</label>
+                                                        <label className="block text-xs font-medium text-gray-700 mb-1">
+                                                            Max ($)
+                                                        </label>
                                                         <input
                                                             type="number"
                                                             value={tier.max}
-                                                            onChange={(e) => {
-                                                                const newTiers = [...commissionSettings.tiers];
-                                                                newTiers[index].max = parseInt(e.target.value);
-                                                                setCommissionSettings({ ...commissionSettings, tiers: newTiers });
+                                                            onChange={e => {
+                                                                const newTiers = [
+                                                                    ...commissionSettings.tiers,
+                                                                ];
+                                                                newTiers[index].max = parseInt(
+                                                                    e.target.value
+                                                                );
+                                                                setCommissionSettings({
+                                                                    ...commissionSettings,
+                                                                    tiers: newTiers,
+                                                                });
                                                             }}
                                                             className="w-full px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                                                         />
                                                     </div>
                                                     <div>
-                                                        <label className="block text-xs font-medium text-gray-700 mb-1">Rate (%)</label>
+                                                        <label className="block text-xs font-medium text-gray-700 mb-1">
+                                                            Rate (%)
+                                                        </label>
                                                         <input
                                                             type="number"
                                                             value={tier.rate}
-                                                            onChange={(e) => {
-                                                                const newTiers = [...commissionSettings.tiers];
-                                                                newTiers[index].rate = parseFloat(e.target.value);
-                                                                setCommissionSettings({ ...commissionSettings, tiers: newTiers });
+                                                            onChange={e => {
+                                                                const newTiers = [
+                                                                    ...commissionSettings.tiers,
+                                                                ];
+                                                                newTiers[index].rate = parseFloat(
+                                                                    e.target.value
+                                                                );
+                                                                setCommissionSettings({
+                                                                    ...commissionSettings,
+                                                                    tiers: newTiers,
+                                                                });
                                                             }}
                                                             className="w-full px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                                                             step="0.1"
@@ -2501,10 +3377,17 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Payment Schedule</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Payment Schedule
+                                    </h4>
                                     <select
                                         value={commissionSettings.paymentSchedule}
-                                        onChange={(e) => setCommissionSettings({ ...commissionSettings, paymentSchedule: e.target.value })}
+                                        onChange={e =>
+                                            setCommissionSettings({
+                                                ...commissionSettings,
+                                                paymentSchedule: e.target.value,
+                                            })
+                                        }
                                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     >
                                         <option value="monthly">Monthly</option>
@@ -2548,22 +3431,43 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Template Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subject</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Template Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Subject
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Type
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {emailTemplates.map((template) => (
+                                        {emailTemplates.map(template => (
                                             <tr key={template.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{template.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{template.subject}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{template.type}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {template.name}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {template.subject}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                                    {template.type}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${template.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            template.active
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-gray-100 text-gray-800'
+                                                        }`}
+                                                    >
                                                         {template.active ? 'Active' : 'Inactive'}
                                                     </span>
                                                 </td>
@@ -2586,11 +3490,15 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Template Editor</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Template Editor
+                            </h4>
                             <form className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Template Name</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Template Name
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter template name"
@@ -2599,7 +3507,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Template Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Template Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="lead">Lead</option>
                                             <option value="follow-up">Follow-up</option>
@@ -2611,7 +3521,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject Line</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Subject Line
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="Enter email subject"
@@ -2620,7 +3532,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Email Content</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Email Content
+                                    </label>
                                     <textarea
                                         rows={10}
                                         placeholder="Enter your email template content here..."
@@ -2667,20 +3581,31 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'auto-responder':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Auto-responder Setup</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Auto-responder Setup
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <h4 className="text-sm font-medium text-gray-900">Enable Auto-responder</h4>
-                                        <p className="text-sm text-gray-500">Automatically respond to incoming messages</p>
+                                        <h4 className="text-sm font-medium text-gray-900">
+                                            Enable Auto-responder
+                                        </h4>
+                                        <p className="text-sm text-gray-500">
+                                            Automatically respond to incoming messages
+                                        </p>
                                     </div>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
                                             checked={autoResponder.enabled}
-                                            onChange={(e) => setAutoResponder({ ...autoResponder, enabled: e.target.checked })}
+                                            onChange={e =>
+                                                setAutoResponder({
+                                                    ...autoResponder,
+                                                    enabled: e.target.checked,
+                                                })
+                                            }
                                             className="sr-only peer"
                                         />
                                         <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2690,12 +3615,19 @@ const Settings: React.FC<SettingsProps> = () => {
                                 {autoResponder.enabled && (
                                     <>
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Business hours only</span>
+                                            <span className="text-sm text-gray-700">
+                                                Business hours only
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
                                                 <input
                                                     type="checkbox"
                                                     checked={autoResponder.businessHoursOnly}
-                                                    onChange={(e) => setAutoResponder({ ...autoResponder, businessHoursOnly: e.target.checked })}
+                                                    onChange={e =>
+                                                        setAutoResponder({
+                                                            ...autoResponder,
+                                                            businessHoursOnly: e.target.checked,
+                                                        })
+                                                    }
                                                     className="sr-only peer"
                                                 />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2703,10 +3635,17 @@ const Settings: React.FC<SettingsProps> = () => {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Auto-response Message</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Auto-response Message
+                                            </label>
                                             <textarea
                                                 value={autoResponder.message}
-                                                onChange={(e) => setAutoResponder({ ...autoResponder, message: e.target.value })}
+                                                onChange={e =>
+                                                    setAutoResponder({
+                                                        ...autoResponder,
+                                                        message: e.target.value,
+                                                    })
+                                                }
                                                 rows={4}
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 placeholder="Enter your auto-response message"
@@ -2714,16 +3653,25 @@ const Settings: React.FC<SettingsProps> = () => {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Response Delay (minutes)</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Response Delay (minutes)
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={autoResponder.delay}
-                                                onChange={(e) => setAutoResponder({ ...autoResponder, delay: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setAutoResponder({
+                                                        ...autoResponder,
+                                                        delay: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="0"
                                                 max="60"
                                             />
-                                            <p className="text-sm text-gray-500 mt-1">Set to 0 for immediate response</p>
+                                            <p className="text-sm text-gray-500 mt-1">
+                                                Set to 0 for immediate response
+                                            </p>
                                         </div>
                                     </>
                                 )}
@@ -2749,13 +3697,20 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'dashboard-customization':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Dashboard Customization</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Dashboard Customization
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Available Widgets</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Available Widgets
+                            </h4>
                             <div className="space-y-3">
-                                {dashboardWidgets.map((widget) => (
-                                    <div key={widget.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                {dashboardWidgets.map(widget => (
+                                    <div
+                                        key={widget.id}
+                                        className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                                    >
                                         <div className="flex items-center space-x-3">
                                             <div className="flex items-center space-x-2">
                                                 <button className="text-gray-400 hover:text-gray-600">
@@ -2765,16 +3720,29 @@ const Settings: React.FC<SettingsProps> = () => {
                                                     <ChevronDown className="w-4 h-4" />
                                                 </button>
                                             </div>
-                                            <span className="text-sm font-medium text-gray-900">{widget.name}</span>
-                                            <span className="text-xs text-gray-500">Position: {widget.position}</span>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                {widget.name}
+                                            </span>
+                                            <span className="text-xs text-gray-500">
+                                                Position: {widget.position}
+                                            </span>
                                         </div>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
                                                 checked={widget.enabled}
-                                                onChange={(e) => setDashboardWidgets(dashboardWidgets.map(w =>
-                                                    w.id === widget.id ? { ...w, enabled: e.target.checked } : w
-                                                ))}
+                                                onChange={e =>
+                                                    setDashboardWidgets(
+                                                        dashboardWidgets.map(w =>
+                                                            w.id === widget.id
+                                                                ? {
+                                                                      ...w,
+                                                                      enabled: e.target.checked,
+                                                                  }
+                                                                : w
+                                                        )
+                                                    )
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -2792,10 +3760,15 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Dashboard Themes</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Dashboard Themes
+                            </h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {['Light', 'Dark', 'Auto'].map((theme) => (
-                                    <label key={theme} className="flex items-center space-x-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                {['Light', 'Dark', 'Auto'].map(theme => (
+                                    <label
+                                        key={theme}
+                                        className="flex items-center space-x-3 p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50"
+                                    >
                                         <input
                                             type="radio"
                                             name="theme"
@@ -2804,11 +3777,15 @@ const Settings: React.FC<SettingsProps> = () => {
                                             className="w-4 h-4 text-blue-600 focus:ring-blue-500"
                                         />
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">{theme}</span>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                {theme}
+                                            </span>
                                             <p className="text-xs text-gray-500">
                                                 {theme === 'Light' && 'Light theme for daytime use'}
-                                                {theme === 'Dark' && 'Dark theme for low-light environments'}
-                                                {theme === 'Auto' && 'Automatically switch based on system preference'}
+                                                {theme === 'Dark' &&
+                                                    'Dark theme for low-light environments'}
+                                                {theme === 'Auto' &&
+                                                    'Automatically switch based on system preference'}
                                             </p>
                                         </div>
                                     </label>
@@ -2822,7 +3799,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Report Templates</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Report Templates
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Create Template
@@ -2834,19 +3813,35 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Template Name</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Schedule</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Recipients</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Template Name
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Type
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Schedule
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Recipients
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {reportTemplates.map((template) => (
+                                        {reportTemplates.map(template => (
                                             <tr key={template.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{template.name}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{template.type}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">{template.schedule}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    {template.name}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                                    {template.type}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 capitalize">
+                                                    {template.schedule}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {template.recipients.length} recipient(s)
                                                 </td>
@@ -2869,11 +3864,15 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Create New Report Template</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Create New Report Template
+                            </h4>
                             <form className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Template Name</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Template Name
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter template name"
@@ -2882,7 +3881,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Report Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Report Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="sales">Sales Report</option>
                                             <option value="leads">Lead Report</option>
@@ -2893,7 +3894,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Schedule</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Schedule
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="daily">Daily</option>
                                             <option value="weekly">Weekly</option>
@@ -2904,7 +3907,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Format</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Format
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="pdf">PDF</option>
                                             <option value="excel">Excel</option>
@@ -2915,7 +3920,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Recipients</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Recipients
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="Enter email addresses separated by commas"
@@ -2940,90 +3947,153 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'data-retention':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Data Retention Policies</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Data Retention Policies
+                        </h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Retention Periods (Days)</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Retention Periods (Days)
+                                    </h4>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Leads Data</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Leads Data
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={dataRetention.leads}
-                                                onChange={(e) => setDataRetention({ ...dataRetention, leads: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setDataRetention({
+                                                        ...dataRetention,
+                                                        leads: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="1"
                                             />
-                                            <p className="text-xs text-gray-500 mt-1">Currently: {dataRetention.leads} days (1 year)</p>
+                                            <p className="text-xs text-gray-500 mt-1">
+                                                Currently: {dataRetention.leads} days (1 year)
+                                            </p>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Deals Data</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Deals Data
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={dataRetention.deals}
-                                                onChange={(e) => setDataRetention({ ...dataRetention, deals: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setDataRetention({
+                                                        ...dataRetention,
+                                                        deals: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="1"
                                             />
-                                            <p className="text-xs text-gray-500 mt-1">Currently: {dataRetention.deals} days (7 years)</p>
+                                            <p className="text-xs text-gray-500 mt-1">
+                                                Currently: {dataRetention.deals} days (7 years)
+                                            </p>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Activity Logs</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Activity Logs
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={dataRetention.activities}
-                                                onChange={(e) => setDataRetention({ ...dataRetention, activities: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setDataRetention({
+                                                        ...dataRetention,
+                                                        activities: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="1"
                                             />
-                                            <p className="text-xs text-gray-500 mt-1">Currently: {dataRetention.activities} days (2 years)</p>
+                                            <p className="text-xs text-gray-500 mt-1">
+                                                Currently: {dataRetention.activities} days (2 years)
+                                            </p>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">System Logs</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                System Logs
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={dataRetention.logs}
-                                                onChange={(e) => setDataRetention({ ...dataRetention, logs: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setDataRetention({
+                                                        ...dataRetention,
+                                                        logs: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="1"
                                             />
-                                            <p className="text-xs text-gray-500 mt-1">Currently: {dataRetention.logs} days (3 months)</p>
+                                            <p className="text-xs text-gray-500 mt-1">
+                                                Currently: {dataRetention.logs} days (3 months)
+                                            </p>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-gray-700 mb-2">Backup Files</label>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Backup Files
+                                            </label>
                                             <input
                                                 type="number"
                                                 value={dataRetention.backups}
-                                                onChange={(e) => setDataRetention({ ...dataRetention, backups: parseInt(e.target.value) })}
+                                                onChange={e =>
+                                                    setDataRetention({
+                                                        ...dataRetention,
+                                                        backups: parseInt(e.target.value),
+                                                    })
+                                                }
                                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                                 min="1"
                                             />
-                                            <p className="text-xs text-gray-500 mt-1">Currently: {dataRetention.backups} days (1 month)</p>
+                                            <p className="text-xs text-gray-500 mt-1">
+                                                Currently: {dataRetention.backups} days (1 month)
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="border-t border-gray-200 pt-6">
-                                    <h4 className="text-sm font-medium text-gray-900 mb-4">Automated Cleanup</h4>
+                                    <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                        Automated Cleanup
+                                    </h4>
                                     <div className="space-y-3">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Enable automatic data cleanup</span>
+                                            <span className="text-sm text-gray-700">
+                                                Enable automatic data cleanup
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
 
                                         <div className="flex items-center justify-between">
-                                            <span className="text-sm text-gray-700">Send cleanup notifications</span>
+                                            <span className="text-sm text-gray-700">
+                                                Send cleanup notifications
+                                            </span>
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" defaultChecked className="sr-only peer" />
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="sr-only peer"
+                                                />
                                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                             </label>
                                         </div>
@@ -3045,7 +4115,9 @@ const Settings: React.FC<SettingsProps> = () => {
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-lg font-semibold text-gray-900">Custom Metrics Configuration</h3>
+                            <h3 className="text-lg font-semibold text-gray-900">
+                                Custom Metrics Configuration
+                            </h3>
                             <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center">
                                 <Plus className="w-4 h-4 mr-2" />
                                 Create Metric
@@ -3054,16 +4126,45 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {[
-                                { name: 'Lead Conversion Rate', formula: '(Converted Leads / Total Leads) * 100', type: 'percentage' },
-                                { name: 'Average Deal Size', formula: 'Total Deal Value / Number of Deals', type: 'currency' },
-                                { name: 'Sales Cycle Length', formula: 'Average Days from Lead to Close', type: 'days' },
-                                { name: 'Customer Lifetime Value', formula: 'Average Deal Value * Repeat Purchase Rate', type: 'currency' },
-                                { name: 'Monthly Recurring Revenue', formula: 'Sum of Monthly Subscription Values', type: 'currency' },
-                                { name: 'Churn Rate', formula: '(Lost Customers / Total Customers) * 100', type: 'percentage' }
+                                {
+                                    name: 'Lead Conversion Rate',
+                                    formula: '(Converted Leads / Total Leads) * 100',
+                                    type: 'percentage',
+                                },
+                                {
+                                    name: 'Average Deal Size',
+                                    formula: 'Total Deal Value / Number of Deals',
+                                    type: 'currency',
+                                },
+                                {
+                                    name: 'Sales Cycle Length',
+                                    formula: 'Average Days from Lead to Close',
+                                    type: 'days',
+                                },
+                                {
+                                    name: 'Customer Lifetime Value',
+                                    formula: 'Average Deal Value * Repeat Purchase Rate',
+                                    type: 'currency',
+                                },
+                                {
+                                    name: 'Monthly Recurring Revenue',
+                                    formula: 'Sum of Monthly Subscription Values',
+                                    type: 'currency',
+                                },
+                                {
+                                    name: 'Churn Rate',
+                                    formula: '(Lost Customers / Total Customers) * 100',
+                                    type: 'percentage',
+                                },
                             ].map((metric, index) => (
-                                <div key={index} className="bg-white p-6 rounded-lg border border-gray-200">
+                                <div
+                                    key={index}
+                                    className="bg-white p-6 rounded-lg border border-gray-200"
+                                >
                                     <div className="flex items-center justify-between mb-3">
-                                        <h4 className="text-sm font-medium text-gray-900">{metric.name}</h4>
+                                        <h4 className="text-sm font-medium text-gray-900">
+                                            {metric.name}
+                                        </h4>
                                         <div className="flex items-center space-x-1">
                                             <button className="text-blue-600 hover:text-blue-800">
                                                 <Edit className="w-4 h-4" />
@@ -3077,14 +4178,23 @@ const Settings: React.FC<SettingsProps> = () => {
                                     <p className="text-xs text-gray-600 mb-3">{metric.formula}</p>
 
                                     <div className="flex items-center justify-between">
-                                        <span className={`text-xs px-2 py-1 rounded-full ${metric.type === 'percentage' ? 'bg-blue-100 text-blue-800' :
-                                            metric.type === 'currency' ? 'bg-green-100 text-green-800' :
-                                                'bg-purple-100 text-purple-800'
-                                            }`}>
+                                        <span
+                                            className={`text-xs px-2 py-1 rounded-full ${
+                                                metric.type === 'percentage'
+                                                    ? 'bg-blue-100 text-blue-800'
+                                                    : metric.type === 'currency'
+                                                      ? 'bg-green-100 text-green-800'
+                                                      : 'bg-purple-100 text-purple-800'
+                                            }`}
+                                        >
                                             {metric.type}
                                         </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-8 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[1px] after:left-[1px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
@@ -3093,11 +4203,15 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Create Custom Metric</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Create Custom Metric
+                            </h4>
                             <form className="space-y-4">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Metric Name</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Metric Name
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter metric name"
@@ -3106,7 +4220,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Data Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Data Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="number">Number</option>
                                             <option value="percentage">Percentage</option>
@@ -3118,7 +4234,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Formula</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Formula
+                                    </label>
                                     <textarea
                                         rows={3}
                                         placeholder="Enter calculation formula (e.g., SUM(deals.value) / COUNT(deals))"
@@ -3127,7 +4245,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Description
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="Brief description of what this metric measures"
@@ -3159,16 +4279,24 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'database-maintenance':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Database Maintenance</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Database Maintenance
+                        </h3>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Maintenance Tasks</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Maintenance Tasks
+                                </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Optimize Database</span>
-                                            <p className="text-xs text-gray-500">Last run: 2024-01-14 02:00</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Optimize Database
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Last run: 2024-01-14 02:00
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Run Now
@@ -3177,8 +4305,12 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Rebuild Indexes</span>
-                                            <p className="text-xs text-gray-500">Last run: 2024-01-13 02:00</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Rebuild Indexes
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Last run: 2024-01-13 02:00
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Run Now
@@ -3187,8 +4319,12 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Clean Temp Data</span>
-                                            <p className="text-xs text-gray-500">Last run: 2024-01-15 01:00</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Clean Temp Data
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Last run: 2024-01-15 01:00
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Run Now
@@ -3197,8 +4333,12 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Update Statistics</span>
-                                            <p className="text-xs text-gray-500">Last run: 2024-01-15 03:00</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Update Statistics
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Last run: 2024-01-15 03:00
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Run Now
@@ -3208,10 +4348,14 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Scheduled Maintenance</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Scheduled Maintenance
+                                </h4>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Maintenance Window</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Maintenance Window
+                                        </label>
                                         <div className="grid grid-cols-2 gap-3">
                                             <input
                                                 type="time"
@@ -3227,7 +4371,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Frequency</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Frequency
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="daily">Daily</option>
                                             <option value="weekly">Weekly</option>
@@ -3236,17 +4382,29 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Enable automatic maintenance</span>
+                                        <span className="text-sm text-gray-700">
+                                            Enable automatic maintenance
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Send maintenance notifications</span>
+                                        <span className="text-sm text-gray-700">
+                                            Send maintenance notifications
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
@@ -3286,27 +4444,48 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Timestamp</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Level</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Timestamp
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Level
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Message
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                User
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {systemLogs.map((log) => (
+                                        {systemLogs.map(log => (
                                             <tr key={log.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{log.timestamp}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {log.timestamp}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${log.level === 'ERROR' ? 'bg-red-100 text-red-800' :
-                                                        log.level === 'WARNING' ? 'bg-yellow-100 text-yellow-800' :
-                                                            'bg-blue-100 text-blue-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            log.level === 'ERROR'
+                                                                ? 'bg-red-100 text-red-800'
+                                                                : log.level === 'WARNING'
+                                                                  ? 'bg-yellow-100 text-yellow-800'
+                                                                  : 'bg-blue-100 text-blue-800'
+                                                        }`}
+                                                    >
                                                         {log.level}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 text-sm text-gray-900">{log.message}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{log.user}</td>
+                                                <td className="px-6 py-4 text-sm text-gray-900">
+                                                    {log.message}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {log.user}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                     <button className="text-blue-600 hover:text-blue-900">
                                                         <Eye className="w-4 h-4" />
@@ -3320,10 +4499,14 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Log Configuration</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Log Configuration
+                            </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Log Level</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Log Level
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="debug">Debug</option>
                                         <option value="info">Info</option>
@@ -3333,7 +4516,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Log Rotation</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Log Rotation
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="daily">Daily</option>
                                         <option value="weekly">Weekly</option>
@@ -3343,7 +4528,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Max Log Files</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Max Log Files
+                                    </label>
                                     <input
                                         type="number"
                                         defaultValue="30"
@@ -3354,7 +4541,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Log Format</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Log Format
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="json">JSON</option>
                                         <option value="text">Plain Text</option>
@@ -3376,15 +4565,21 @@ const Settings: React.FC<SettingsProps> = () => {
             case 'performance-monitoring':
                 return (
                     <div className="space-y-6">
-                        <h3 className="text-lg font-semibold text-gray-900">Performance Monitoring</h3>
+                        <h3 className="text-lg font-semibold text-gray-900">
+                            Performance Monitoring
+                        </h3>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                             <div className="bg-white p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center justify-between mb-2">
                                     <Cpu className="w-5 h-5 text-blue-500" />
-                                    <span className="text-sm font-medium text-gray-900">CPU Usage</span>
+                                    <span className="text-sm font-medium text-gray-900">
+                                        CPU Usage
+                                    </span>
                                 </div>
-                                <div className="text-2xl font-bold text-gray-900">{performanceMetrics.cpuUsage}%</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    {performanceMetrics.cpuUsage}%
+                                </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                     <div
                                         className="bg-blue-500 h-2 rounded-full"
@@ -3396,9 +4591,13 @@ const Settings: React.FC<SettingsProps> = () => {
                             <div className="bg-white p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center justify-between mb-2">
                                     <MemoryStick className="w-5 h-5 text-green-500" />
-                                    <span className="text-sm font-medium text-gray-900">Memory</span>
+                                    <span className="text-sm font-medium text-gray-900">
+                                        Memory
+                                    </span>
                                 </div>
-                                <div className="text-2xl font-bold text-gray-900">{performanceMetrics.memoryUsage}%</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    {performanceMetrics.memoryUsage}%
+                                </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                     <div
                                         className="bg-green-500 h-2 rounded-full"
@@ -3410,9 +4609,13 @@ const Settings: React.FC<SettingsProps> = () => {
                             <div className="bg-white p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center justify-between mb-2">
                                     <HardDrive className="w-5 h-5 text-yellow-500" />
-                                    <span className="text-sm font-medium text-gray-900">Disk Usage</span>
+                                    <span className="text-sm font-medium text-gray-900">
+                                        Disk Usage
+                                    </span>
                                 </div>
-                                <div className="text-2xl font-bold text-gray-900">{performanceMetrics.diskUsage}%</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    {performanceMetrics.diskUsage}%
+                                </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                     <div
                                         className="bg-yellow-500 h-2 rounded-full"
@@ -3424,52 +4627,82 @@ const Settings: React.FC<SettingsProps> = () => {
                             <div className="bg-white p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center justify-between mb-2">
                                     <Users className="w-5 h-5 text-purple-500" />
-                                    <span className="text-sm font-medium text-gray-900">Active Users</span>
+                                    <span className="text-sm font-medium text-gray-900">
+                                        Active Users
+                                    </span>
                                 </div>
-                                <div className="text-2xl font-bold text-gray-900">{performanceMetrics.activeUsers}</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    {performanceMetrics.activeUsers}
+                                </div>
                                 <div className="text-sm text-gray-500">Currently online</div>
                             </div>
 
                             <div className="bg-white p-4 rounded-lg border border-gray-200">
                                 <div className="flex items-center justify-between mb-2">
                                     <Activity className="w-5 h-5 text-red-500" />
-                                    <span className="text-sm font-medium text-gray-900">Response Time</span>
+                                    <span className="text-sm font-medium text-gray-900">
+                                        Response Time
+                                    </span>
                                 </div>
-                                <div className="text-2xl font-bold text-gray-900">{performanceMetrics.responseTime}ms</div>
+                                <div className="text-2xl font-bold text-gray-900">
+                                    {performanceMetrics.responseTime}ms
+                                </div>
                                 <div className="text-sm text-gray-500">Average</div>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Performance Alerts</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Performance Alerts
+                                </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">CPU Usage Alert</span>
-                                            <p className="text-xs text-gray-500">Alert when CPU {'>'} 80%</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                CPU Usage Alert
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Alert when CPU {'>'} 80%
+                                            </p>
                                         </div>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Memory Usage Alert</span>
-                                            <p className="text-xs text-gray-500">Alert when Memory {'>'} 85%</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Memory Usage Alert
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Alert when Memory {'>'} 85%
+                                            </p>
                                         </div>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Response Time Alert</span>
-                                            <p className="text-xs text-gray-500">Alert when Response {'>'} 500ms</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Response Time Alert
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Alert when Response {'>'} 500ms
+                                            </p>
                                         </div>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" className="sr-only peer" />
@@ -3480,10 +4713,14 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Monitoring Settings</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Monitoring Settings
+                                </h4>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Monitoring Interval</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Monitoring Interval
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="30">30 seconds</option>
                                             <option value="60">1 minute</option>
@@ -3493,7 +4730,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Data Retention</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Data Retention
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="7">7 days</option>
                                             <option value="30">30 days</option>
@@ -3503,9 +4742,15 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Enable real-time monitoring</span>
+                                        <span className="text-sm text-gray-700">
+                                            Enable real-time monitoring
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
@@ -3529,7 +4774,9 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
                             <div className="flex items-center justify-between mb-6">
-                                <h4 className="text-sm font-medium text-gray-900">Storage Overview</h4>
+                                <h4 className="text-sm font-medium text-gray-900">
+                                    Storage Overview
+                                </h4>
                                 <div className="text-sm text-gray-600">
                                     {storageUsage.used}GB of {storageUsage.total}GB used
                                 </div>
@@ -3538,32 +4785,42 @@ const Settings: React.FC<SettingsProps> = () => {
                             <div className="w-full bg-gray-200 rounded-full h-4 mb-6">
                                 <div
                                     className="bg-blue-500 h-4 rounded-full"
-                                    style={{ width: `${(storageUsage.used / storageUsage.total) * 100}%` }}
+                                    style={{
+                                        width: `${(storageUsage.used / storageUsage.total) * 100}%`,
+                                    }}
                                 ></div>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                                     <FileText className="w-8 h-8 text-blue-500 mx-auto mb-2" />
-                                    <div className="text-lg font-semibold text-gray-900">{storageUsage.breakdown.documents}GB</div>
+                                    <div className="text-lg font-semibold text-gray-900">
+                                        {storageUsage.breakdown.documents}GB
+                                    </div>
                                     <div className="text-sm text-gray-600">Documents</div>
                                 </div>
 
                                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                                     <Image className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                                    <div className="text-lg font-semibold text-gray-900">{storageUsage.breakdown.images}GB</div>
+                                    <div className="text-lg font-semibold text-gray-900">
+                                        {storageUsage.breakdown.images}GB
+                                    </div>
                                     <div className="text-sm text-gray-600">Images</div>
                                 </div>
 
                                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                                     <Archive className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
-                                    <div className="text-lg font-semibold text-gray-900">{storageUsage.breakdown.backups}GB</div>
+                                    <div className="text-lg font-semibold text-gray-900">
+                                        {storageUsage.breakdown.backups}GB
+                                    </div>
                                     <div className="text-sm text-gray-600">Backups</div>
                                 </div>
 
                                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                                     <Database className="w-8 h-8 text-purple-500 mx-auto mb-2" />
-                                    <div className="text-lg font-semibold text-gray-900">{storageUsage.breakdown.logs}GB</div>
+                                    <div className="text-lg font-semibold text-gray-900">
+                                        {storageUsage.breakdown.logs}GB
+                                    </div>
                                     <div className="text-sm text-gray-600">Logs</div>
                                 </div>
                             </div>
@@ -3571,12 +4828,18 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Storage Cleanup</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Storage Cleanup
+                                </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Clean Temporary Files</span>
-                                            <p className="text-xs text-gray-500">Remove temporary and cache files</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Clean Temporary Files
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Remove temporary and cache files
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Clean Now
@@ -3585,8 +4848,12 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Archive Old Data</span>
-                                            <p className="text-xs text-gray-500">Move old records to archive storage</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Archive Old Data
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Move old records to archive storage
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Archive
@@ -3595,8 +4862,12 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                                         <div>
-                                            <span className="text-sm font-medium text-gray-900">Compress Backups</span>
-                                            <p className="text-xs text-gray-500">Compress old backup files</p>
+                                            <span className="text-sm font-medium text-gray-900">
+                                                Compress Backups
+                                            </span>
+                                            <p className="text-xs text-gray-500">
+                                                Compress old backup files
+                                            </p>
                                         </div>
                                         <button className="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700">
                                             Compress
@@ -3606,18 +4877,28 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Storage Alerts</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Storage Alerts
+                                </h4>
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Enable storage alerts</span>
+                                        <span className="text-sm text-gray-700">
+                                            Enable storage alerts
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
-                                            <input type="checkbox" defaultChecked className="sr-only peer" />
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="sr-only peer"
+                                            />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Alert threshold (%)</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Alert threshold (%)
+                                        </label>
                                         <input
                                             type="number"
                                             defaultValue="80"
@@ -3628,7 +4909,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-gray-700">Auto-cleanup when full</span>
+                                        <span className="text-sm text-gray-700">
+                                            Auto-cleanup when full
+                                        </span>
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input type="checkbox" className="sr-only peer" />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -3678,22 +4961,43 @@ const Settings: React.FC<SettingsProps> = () => {
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Date
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Invoice
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Amount
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {billingHistory.map((bill) => (
+                                        {billingHistory.map(bill => (
                                             <tr key={bill.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{bill.date}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{bill.invoice}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${bill.amount}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {bill.date}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {bill.invoice}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    ${bill.amount}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${bill.status === 'Paid' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            bill.status === 'Paid'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-red-100 text-red-800'
+                                                        }`}
+                                                    >
                                                         {bill.status}
                                                     </span>
                                                 </td>
@@ -3713,7 +5017,9 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Billing Summary</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Billing Summary
+                            </h4>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                                     <div className="text-2xl font-bold text-gray-900">$897</div>
@@ -3746,8 +5052,11 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="space-y-4">
-                            {paymentMethods.map((method) => (
-                                <div key={method.id} className="bg-white p-6 rounded-lg border border-gray-200">
+                            {paymentMethods.map(method => (
+                                <div
+                                    key={method.id}
+                                    className="bg-white p-6 rounded-lg border border-gray-200"
+                                >
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center space-x-4">
                                             <div className="w-12 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded flex items-center justify-center">
@@ -3755,15 +5064,21 @@ const Settings: React.FC<SettingsProps> = () => {
                                             </div>
                                             <div>
                                                 <div className="flex items-center space-x-2">
-                                                    <span className="text-sm font-medium text-gray-900">{method.brand}</span>
-                                                    <span className="text-sm text-gray-500">•••• {method.last4}</span>
+                                                    <span className="text-sm font-medium text-gray-900">
+                                                        {method.brand}
+                                                    </span>
+                                                    <span className="text-sm text-gray-500">
+                                                        •••• {method.last4}
+                                                    </span>
                                                     {method.isDefault && (
                                                         <span className="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
                                                             Default
                                                         </span>
                                                     )}
                                                 </div>
-                                                <div className="text-sm text-gray-500">Expires {method.expires}</div>
+                                                <div className="text-sm text-gray-500">
+                                                    Expires {method.expires}
+                                                </div>
                                             </div>
                                         </div>
 
@@ -3786,10 +5101,14 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Add New Payment Method</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Add New Payment Method
+                            </h4>
                             <form className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Card Number</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Card Number
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="1234 5678 9012 3456"
@@ -3799,25 +5118,35 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Expiry Month</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Expiry Month
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             {Array.from({ length: 12 }, (_, i) => (
-                                                <option key={i + 1} value={i + 1}>{String(i + 1).padStart(2, '0')}</option>
+                                                <option key={i + 1} value={i + 1}>
+                                                    {String(i + 1).padStart(2, '0')}
+                                                </option>
                                             ))}
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Expiry Year</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Expiry Year
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             {Array.from({ length: 10 }, (_, i) => (
-                                                <option key={2024 + i} value={2024 + i}>{2024 + i}</option>
+                                                <option key={2024 + i} value={2024 + i}>
+                                                    {2024 + i}
+                                                </option>
                                             ))}
                                         </select>
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            CVV
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="123"
@@ -3828,7 +5157,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Cardholder Name</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Cardholder Name
+                                    </label>
                                     <input
                                         type="text"
                                         placeholder="John Doe"
@@ -3885,7 +5216,9 @@ const Settings: React.FC<SettingsProps> = () => {
                             <h4 className="text-sm font-medium text-gray-900 mb-4">Import Data</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Data Type</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Data Type
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="leads">Leads</option>
                                         <option value="contacts">Contacts</option>
@@ -3896,7 +5229,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">File Format</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        File Format
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="csv">CSV</option>
                                         <option value="excel">Excel (XLSX)</option>
@@ -3907,12 +5242,22 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Upload File
+                                </label>
                                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
                                     <FileUp className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                                    <p className="text-sm text-gray-600">Drop your file here or click to upload</p>
-                                    <p className="text-xs text-gray-500 mt-1">Supports CSV, Excel, JSON, XML (Max 10MB)</p>
-                                    <input type="file" className="hidden" accept=".csv,.xlsx,.json,.xml" />
+                                    <p className="text-sm text-gray-600">
+                                        Drop your file here or click to upload
+                                    </p>
+                                    <p className="text-xs text-gray-500 mt-1">
+                                        Supports CSV, Excel, JSON, XML (Max 10MB)
+                                    </p>
+                                    <input
+                                        type="file"
+                                        className="hidden"
+                                        accept=".csv,.xlsx,.json,.xml"
+                                    />
                                 </div>
                             </div>
 
@@ -3923,7 +5268,10 @@ const Settings: React.FC<SettingsProps> = () => {
                                         id="skipDuplicates"
                                         className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                                     />
-                                    <label htmlFor="skipDuplicates" className="text-sm text-gray-700">
+                                    <label
+                                        htmlFor="skipDuplicates"
+                                        className="text-sm text-gray-700"
+                                    >
                                         Skip duplicate records
                                     </label>
                                 </div>
@@ -3939,30 +5287,57 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="bg-white rounded-lg border border-gray-200">
                             <div className="px-6 py-4 border-b border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900">Import History</h4>
+                                <h4 className="text-sm font-medium text-gray-900">
+                                    Import History
+                                </h4>
                             </div>
                             <div className="overflow-x-auto">
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Records</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Date
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Type
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                File
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Records
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Actions
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {importHistory.map((item) => (
+                                        {importHistory.map(item => (
                                             <tr key={item.id}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.date}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.type}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.file}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.records}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {item.date}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {item.type}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {item.file}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {item.records}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${item.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            item.status === 'Completed'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-red-100 text-red-800'
+                                                        }`}
+                                                    >
                                                         {item.status}
                                                     </span>
                                                 </td>
@@ -3989,19 +5364,30 @@ const Settings: React.FC<SettingsProps> = () => {
                         <h3 className="text-lg font-semibold text-gray-900">Export Formats</h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Supported Export Formats</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Supported Export Formats
+                            </h4>
                             <div className="space-y-4">
                                 {Object.entries(exportFormats).map(([format, enabled]) => (
-                                    <div key={format} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                    <div
+                                        key={format}
+                                        className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
+                                    >
                                         <div className="flex items-center space-x-3">
                                             <FileText className="w-5 h-5 text-gray-400" />
                                             <div>
-                                                <span className="text-sm font-medium text-gray-900 uppercase">{format}</span>
+                                                <span className="text-sm font-medium text-gray-900 uppercase">
+                                                    {format}
+                                                </span>
                                                 <p className="text-sm text-gray-500">
-                                                    {format === 'csv' && 'Comma-separated values - Compatible with Excel and most tools'}
-                                                    {format === 'excel' && 'Microsoft Excel format with formatting and formulas'}
-                                                    {format === 'json' && 'JavaScript Object Notation - For developers and APIs'}
-                                                    {format === 'xml' && 'Extensible Markup Language - Structured data format'}
+                                                    {format === 'csv' &&
+                                                        'Comma-separated values - Compatible with Excel and most tools'}
+                                                    {format === 'excel' &&
+                                                        'Microsoft Excel format with formatting and formulas'}
+                                                    {format === 'json' &&
+                                                        'JavaScript Object Notation - For developers and APIs'}
+                                                    {format === 'xml' &&
+                                                        'Extensible Markup Language - Structured data format'}
                                                 </p>
                                             </div>
                                         </div>
@@ -4009,7 +5395,12 @@ const Settings: React.FC<SettingsProps> = () => {
                                             <input
                                                 type="checkbox"
                                                 checked={enabled}
-                                                onChange={(e) => setExportFormats({ ...exportFormats, [format]: e.target.checked })}
+                                                onChange={e =>
+                                                    setExportFormats({
+                                                        ...exportFormats,
+                                                        [format]: e.target.checked,
+                                                    })
+                                                }
                                                 className="sr-only peer"
                                             />
                                             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
@@ -4030,7 +5421,9 @@ const Settings: React.FC<SettingsProps> = () => {
                             <h4 className="text-sm font-medium text-gray-900 mb-4">Quick Export</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Data Type</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Data Type
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="all">All Data</option>
                                         <option value="leads">Leads Only</option>
@@ -4041,7 +5434,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Format</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Format
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="csv">CSV</option>
                                         <option value="excel">Excel</option>
@@ -4050,7 +5445,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Date Range</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Date Range
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="all">All Time</option>
                                         <option value="30">Last 30 days</option>
@@ -4061,15 +5458,29 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Include</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Include
+                                    </label>
                                     <div className="space-y-2">
                                         <label className="flex items-center space-x-2">
-                                            <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                            <span className="text-sm text-gray-700">Archived records</span>
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                Archived records
+                                            </span>
                                         </label>
                                         <label className="flex items-center space-x-2">
-                                            <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                            <span className="text-sm text-gray-700">Custom fields</span>
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                Custom fields
+                                            </span>
                                         </label>
                                     </div>
                                 </div>
@@ -4091,7 +5502,9 @@ const Settings: React.FC<SettingsProps> = () => {
                         <h3 className="text-lg font-semibold text-gray-900">Migration Utilities</h3>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Platform Migration</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Platform Migration
+                            </h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {[
                                     { name: 'Salesforce', icon: '🏢', supported: true },
@@ -4099,17 +5512,28 @@ const Settings: React.FC<SettingsProps> = () => {
                                     { name: 'Pipedrive', icon: '🟢', supported: true },
                                     { name: 'Zoho CRM', icon: '🔵', supported: true },
                                     { name: 'Microsoft Dynamics', icon: '🔷', supported: false },
-                                    { name: 'SugarCRM', icon: '🍯', supported: false }
+                                    { name: 'SugarCRM', icon: '🍯', supported: false },
                                 ].map((platform, index) => (
-                                    <div key={index} className={`p-4 rounded-lg border-2 ${platform.supported ? 'border-green-200 bg-green-50' : 'border-gray-200 bg-gray-50'
-                                        }`}>
+                                    <div
+                                        key={index}
+                                        className={`p-4 rounded-lg border-2 ${
+                                            platform.supported
+                                                ? 'border-green-200 bg-green-50'
+                                                : 'border-gray-200 bg-gray-50'
+                                        }`}
+                                    >
                                         <div className="text-center">
                                             <div className="text-2xl mb-2">{platform.icon}</div>
-                                            <h5 className="text-sm font-medium text-gray-900">{platform.name}</h5>
-                                            <span className={`text-xs px-2 py-1 rounded-full mt-2 inline-block ${platform.supported
-                                                ? 'bg-green-100 text-green-800'
-                                                : 'bg-gray-100 text-gray-800'
-                                                }`}>
+                                            <h5 className="text-sm font-medium text-gray-900">
+                                                {platform.name}
+                                            </h5>
+                                            <span
+                                                className={`text-xs px-2 py-1 rounded-full mt-2 inline-block ${
+                                                    platform.supported
+                                                        ? 'bg-green-100 text-green-800'
+                                                        : 'bg-gray-100 text-gray-800'
+                                                }`}
+                                            >
                                                 {platform.supported ? 'Supported' : 'Coming Soon'}
                                             </span>
                                         </div>
@@ -4124,10 +5548,14 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Migration Wizard</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Migration Wizard
+                            </h4>
                             <div className="space-y-6">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Source Platform</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Source Platform
+                                    </label>
                                     <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                         <option value="">Select source platform</option>
                                         <option value="salesforce">Salesforce</option>
@@ -4138,31 +5566,68 @@ const Settings: React.FC<SettingsProps> = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Data to Migrate</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Data to Migrate
+                                    </label>
                                     <div className="space-y-2">
-                                        {['Contacts', 'Leads', 'Deals', 'Companies', 'Activities', 'Custom Fields'].map((item) => (
-                                            <label key={item} className="flex items-center space-x-2">
-                                                <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                                <span className="text-sm text-gray-700">{item}</span>
+                                        {[
+                                            'Contacts',
+                                            'Leads',
+                                            'Deals',
+                                            'Companies',
+                                            'Activities',
+                                            'Custom Fields',
+                                        ].map(item => (
+                                            <label
+                                                key={item}
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    defaultChecked
+                                                    className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                                />
+                                                <span className="text-sm text-gray-700">
+                                                    {item}
+                                                </span>
                                             </label>
                                         ))}
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">Migration Options</label>
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Migration Options
+                                    </label>
                                     <div className="space-y-2">
                                         <label className="flex items-center space-x-2">
-                                            <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                            <span className="text-sm text-gray-700">Preserve record relationships</span>
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                Preserve record relationships
+                                            </span>
                                         </label>
                                         <label className="flex items-center space-x-2">
-                                            <input type="checkbox" className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                            <span className="text-sm text-gray-700">Skip duplicate records</span>
+                                            <input
+                                                type="checkbox"
+                                                className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                Skip duplicate records
+                                            </span>
                                         </label>
                                         <label className="flex items-center space-x-2">
-                                            <input type="checkbox" defaultChecked className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500" />
-                                            <span className="text-sm text-gray-700">Create backup before migration</span>
+                                            <input
+                                                type="checkbox"
+                                                defaultChecked
+                                                className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                                            />
+                                            <span className="text-sm text-gray-700">
+                                                Create backup before migration
+                                            </span>
                                         </label>
                                     </div>
                                 </div>
@@ -4185,10 +5650,14 @@ const Settings: React.FC<SettingsProps> = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Bulk Update</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Bulk Update
+                                </h4>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Record Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Record Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="leads">Leads</option>
                                             <option value="contacts">Contacts</option>
@@ -4198,7 +5667,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Filter Criteria</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Filter Criteria
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="e.g., status = 'New' AND created_date > '2024-01-01'"
@@ -4207,7 +5678,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Update Field</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Update Field
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="status">Status</option>
                                             <option value="owner">Owner</option>
@@ -4217,7 +5690,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">New Value</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            New Value
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="Enter new value"
@@ -4233,10 +5708,14 @@ const Settings: React.FC<SettingsProps> = () => {
                             </div>
 
                             <div className="bg-white p-6 rounded-lg border border-gray-200">
-                                <h4 className="text-sm font-medium text-gray-900 mb-4">Bulk Delete</h4>
+                                <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                    Bulk Delete
+                                </h4>
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Record Type</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Record Type
+                                        </label>
                                         <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                                             <option value="leads">Leads</option>
                                             <option value="contacts">Contacts</option>
@@ -4246,7 +5725,9 @@ const Settings: React.FC<SettingsProps> = () => {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-2">Delete Criteria</label>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Delete Criteria
+                                        </label>
                                         <input
                                             type="text"
                                             placeholder="e.g., status = 'Inactive' AND last_activity < '2023-01-01'"
@@ -4257,10 +5738,13 @@ const Settings: React.FC<SettingsProps> = () => {
                                     <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                                         <div className="flex items-center space-x-2">
                                             <AlertTriangle className="w-4 h-4 text-yellow-600" />
-                                            <span className="text-sm font-medium text-yellow-800">Warning</span>
+                                            <span className="text-sm font-medium text-yellow-800">
+                                                Warning
+                                            </span>
                                         </div>
                                         <p className="text-sm text-yellow-700 mt-1">
-                                            This action cannot be undone. Please review your criteria carefully.
+                                            This action cannot be undone. Please review your
+                                            criteria carefully.
                                         </p>
                                     </div>
 
@@ -4270,7 +5754,10 @@ const Settings: React.FC<SettingsProps> = () => {
                                             id="confirmDelete"
                                             className="w-4 h-4 text-red-600 rounded focus:ring-red-500"
                                         />
-                                        <label htmlFor="confirmDelete" className="text-sm text-gray-700">
+                                        <label
+                                            htmlFor="confirmDelete"
+                                            className="text-sm text-gray-700"
+                                        >
                                             I understand this action is permanent
                                         </label>
                                     </div>
@@ -4284,35 +5771,78 @@ const Settings: React.FC<SettingsProps> = () => {
                         </div>
 
                         <div className="bg-white p-6 rounded-lg border border-gray-200">
-                            <h4 className="text-sm font-medium text-gray-900 mb-4">Bulk Operations History</h4>
+                            <h4 className="text-sm font-medium text-gray-900 mb-4">
+                                Bulk Operations History
+                            </h4>
                             <div className="overflow-x-auto">
                                 <table className="w-full">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Operation</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Records</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User</th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Date
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Operation
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Records
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                Status
+                                            </th>
+                                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                User
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
                                         {[
-                                            { date: '2024-01-15 14:30', operation: 'Bulk Update - Lead Status', records: 156, status: 'Completed', user: 'John Doe' },
-                                            { date: '2024-01-14 09:15', operation: 'Bulk Delete - Old Activities', records: 89, status: 'Completed', user: 'Jane Smith' },
-                                            { date: '2024-01-13 16:45', operation: 'Bulk Update - Owner Assignment', records: 234, status: 'Failed', user: 'Mike Johnson' }
+                                            {
+                                                date: '2024-01-15 14:30',
+                                                operation: 'Bulk Update - Lead Status',
+                                                records: 156,
+                                                status: 'Completed',
+                                                user: 'John Doe',
+                                            },
+                                            {
+                                                date: '2024-01-14 09:15',
+                                                operation: 'Bulk Delete - Old Activities',
+                                                records: 89,
+                                                status: 'Completed',
+                                                user: 'Jane Smith',
+                                            },
+                                            {
+                                                date: '2024-01-13 16:45',
+                                                operation: 'Bulk Update - Owner Assignment',
+                                                records: 234,
+                                                status: 'Failed',
+                                                user: 'Mike Johnson',
+                                            },
                                         ].map((operation, index) => (
                                             <tr key={index}>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{operation.date}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{operation.operation}</td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{operation.records}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {operation.date}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {operation.operation}
+                                                </td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                    {operation.records}
+                                                </td>
                                                 <td className="px-6 py-4 whitespace-nowrap">
-                                                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${operation.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                                                        }`}>
+                                                    <span
+                                                        className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                                                            operation.status === 'Completed'
+                                                                ? 'bg-green-100 text-green-800'
+                                                                : 'bg-red-100 text-red-800'
+                                                        }`}
+                                                    >
                                                         {operation.status}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{operation.user}</td>
+                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {operation.user}
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>
@@ -4368,7 +5898,7 @@ const Settings: React.FC<SettingsProps> = () => {
                 </div>
 
                 <nav className="p-4">
-                    {settingsCategories.map((category) => {
+                    {settingsCategories.map(category => {
                         const Icon = category.icon;
                         const isExpanded = expandedCategories.includes(category.id);
                         const isActive = activeCategory === category.id;
@@ -4377,8 +5907,11 @@ const Settings: React.FC<SettingsProps> = () => {
                             <div key={category.id} className="mb-2">
                                 <button
                                     onClick={() => toggleCategory(category.id)}
-                                    className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors ${isActive ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'
-                                        }`}
+                                    className={`w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                                        isActive
+                                            ? 'bg-blue-50 text-blue-700'
+                                            : 'text-gray-700 hover:bg-gray-50'
+                                    }`}
                                 >
                                     <div className="flex items-center">
                                         <Icon className="w-5 h-5 mr-3" />
@@ -4393,14 +5926,18 @@ const Settings: React.FC<SettingsProps> = () => {
 
                                 {isExpanded && category.subsections && (
                                     <div className="ml-8 mt-1 space-y-1">
-                                        {category.subsections.map((subsection) => (
+                                        {category.subsections.map(subsection => (
                                             <button
                                                 key={subsection.id}
-                                                onClick={() => handleCategoryClick(category.id, subsection.id)}
-                                                className={`w-full text-left px-3 py-1 text-sm rounded transition-colors ${activeCategory === category.id && activeSubsection === subsection.id
-                                                    ? 'bg-blue-100 text-blue-700'
-                                                    : 'text-gray-600 hover:bg-gray-50'
-                                                    }`}
+                                                onClick={() =>
+                                                    handleCategoryClick(category.id, subsection.id)
+                                                }
+                                                className={`w-full text-left px-3 py-1 text-sm rounded transition-colors ${
+                                                    activeCategory === category.id &&
+                                                    activeSubsection === subsection.id
+                                                        ? 'bg-blue-100 text-blue-700'
+                                                        : 'text-gray-600 hover:bg-gray-50'
+                                                }`}
                                             >
                                                 {subsection.label}
                                             </button>
@@ -4415,9 +5952,7 @@ const Settings: React.FC<SettingsProps> = () => {
 
             {/* Main Content */}
             <div className="flex-1 overflow-y-auto">
-                <div className="p-6 pl-8">
-                    {renderContent()}
-                </div>
+                <div className="p-6 pl-8">{renderContent()}</div>
             </div>
         </div>
     );
