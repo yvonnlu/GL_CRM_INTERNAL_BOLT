@@ -106,7 +106,6 @@ const Pipeline: React.FC = () => {
     const handleDrop = (e: React.DragEvent, stage: string) => {
         e.preventDefault();
         // In a real app, this would update the deal's stage
-        console.log(`Moving deal ${draggedItem} to stage ${stage}`);
         setDraggedItem(null);
     };
 

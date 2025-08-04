@@ -1078,12 +1078,6 @@ const QuotationCreator: React.FC = () => {
             .map(teamId => teamMembers.find(t => t.id === teamId)?.email)
             .filter(Boolean);
 
-        console.log('Sending quotation to team:', {
-            quotation: updatedQuotation,
-            teamEmails,
-            pdfGenerated: true,
-        });
-
         // Generate PDF for attachment
         generatePDF();
 

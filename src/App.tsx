@@ -1,10 +1,8 @@
-import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Sidebar from './components/Layout/Sidebar';
 import Header from './components/Layout/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import Leads from './components/Leads/Leads';
-import LeadDetail from './components/Leads/LeadDetail';
 import Clients from './components/Clients/Clients';
 import Pipeline from './components/Pipeline/Pipeline';
 import Tasks from './components/Tasks/Tasks';

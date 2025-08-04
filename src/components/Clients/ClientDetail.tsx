@@ -717,8 +717,6 @@ const ClientDetail: React.FC<ClientDetailProps> = ({ clientId, onBack }) => {
             submissionType: 'service_expansion',
         };
 
-        console.log('Sending client questionnaire to team:', data);
-
         const serviceNames = selectedServices
             .map(id => serviceQuestionnaires.find(s => s.serviceId === id)?.serviceName)
             .join(', ');
@@ -749,7 +747,6 @@ const ClientDetail: React.FC<ClientDetailProps> = ({ clientId, onBack }) => {
             notes: submission.notes,
         };
 
-        console.log('Downloading submission:', content);
         alert(`Downloading submission ${submissionId} as PDF...`);
     };
 

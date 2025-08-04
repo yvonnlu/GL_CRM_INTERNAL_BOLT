@@ -353,7 +353,6 @@ const WebsiteAnalytics: React.FC = () => {
             selectedWebsite === 'all'
                 ? analyticsData
                 : analyticsData.filter(d => d.website === selectedWebsite);
-        console.log('Exporting data:', dataToExport);
         alert('Data exported successfully!');
     };
 

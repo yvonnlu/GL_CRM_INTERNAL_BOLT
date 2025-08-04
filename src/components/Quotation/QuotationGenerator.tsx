@@ -529,7 +529,6 @@ const QuotationGenerator: React.FC<{
             updatedAt: new Date().toISOString(),
         }));
 
-        console.log('Sending quotation via Chatwoot:', conversationId);
         setSavedQuotations(prev => [...prev, { ...quotation, status: 'sent' }]);
 
         alert('Quotation sent successfully!');
@@ -553,7 +552,6 @@ const QuotationGenerator: React.FC<{
         });
 
         setQuotation(updatedQuotation);
-        console.log('Saving quotation:', updatedQuotation);
         alert('Quotation saved successfully!');
     };
 

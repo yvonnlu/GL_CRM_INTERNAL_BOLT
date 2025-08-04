@@ -55,16 +55,6 @@ Your Company Team`);
     };
 
     const handleSend = () => {
-        // Here you would implement the actual email sending logic
-        console.log('Sending to team members:', selectedTeamMembers);
-        console.log('Send to client:', sendToClient);
-        console.log('Email subject:', emailSubject);
-        console.log('Team message:', emailMessage);
-        console.log('Selected sender:', selectedSender);
-        if (sendToClient) {
-            console.log('Client message:', clientMessage);
-        }
-
         // Show success message and close modal
         alert('Quote sent successfully!');
         onClose();
